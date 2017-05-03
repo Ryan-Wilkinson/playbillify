@@ -1,0 +1,26 @@
+{
+  "name": "playbillify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryan-Wilkinson/playbillify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ryan-Wilkinson/playbillify/issues"
+  },
+  "homepage": "https://github.com/Ryan-Wilkinson/playbillify#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-ui-router": "^1.0.0-rc.1"
+  }
+}
