@@ -1,0 +1,24 @@
+angular
+  .module('playbillifyApp')
+  .component('eventsNew', {
+    templateUrl: '<%= asset_path("components/eventsNew/eventsNew") %>',
+    controller: EventNewController
+  });
+
+EventNewController.$inject = ['EventsService', '$state'];
+
+function EventNewController(EventsService, $state) {
+  const vm = this;
+  vm.addEvent = addEvent;
+  vm.newEvent = {};
+
+  function addEvent(newEvent) {
+    console.log(newEvent);
+    EventsService
+    .addEvent(newEvent)
+    .then(function () {
+      $state.go('/')
+    })
+  }
+}
+
