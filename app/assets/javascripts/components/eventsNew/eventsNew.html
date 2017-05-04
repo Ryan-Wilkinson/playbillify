@@ -1,0 +1,12 @@
+<div>
+  <form ng-submit="$ctrl.addEvent($ctrl.newEvent)">
+    <input type="text" ng-model="$ctrl.newEvent.title" placeholder="Event Title">
+    <input type="text" ng-model="$ctrl.newEvent.date" placeholder="Event Date">
+    <input type="text" ng-model="$ctrl.newEvent.venue" placeholder="Venue">
+    <input type="text" ng-model="$ctrl.newEvent.city" placeholder="City">
+    <input type="text" ng-model="$ctrl.newEvent.state" placeholder="State">
+    <input type="number" ng-model="$ctrl.newEvent.estimated_attendees" placeholder="Estimated # of Attendees">
+    <input type="date" ng-model="$ctrl.newEvent.deadline" placeholder="Deadline for submitting ad images">
+    <input type="submit" value="Add Event">
+  </form>
+</div>

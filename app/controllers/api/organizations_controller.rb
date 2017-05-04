@@ -1,4 +1,4 @@
-class OrganizationsController < ApplicationController
+class Api::OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
   # GET /organizations
@@ -10,13 +10,14 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    @organization = Organization.find(params[:id])
+    @organization = Organization.find_by(user_id: current_user.id)
+    render json: @organization
   end
 
   # GET /organizations/new
   def new
     @organization = Organization.new
-
+    render json: @organization
   end
 
   # GET /organizations/1/edit
@@ -42,6 +43,7 @@ class OrganizationsController < ApplicationController
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end
+    render json: @organization
   end
 
   # PATCH/PUT /organizations/1
@@ -79,6 +81,7 @@ class OrganizationsController < ApplicationController
     def organization_params
       params.require(:organization)
         .permit(:name, :city, :state, :photo_url)
+        .merge(user_id: current_user)
 
     end
 end
