@@ -1,27 +1,6 @@
 <h1>New Organization</h1>
 
-<%= form_for [@organization] do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </p>
-  <p>
-    <%= f.label :photo_url %><br>
-    <%= f.text_field :photo_url %>
-  </p>
-
- <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'form', organization: @organization %>
 
 
 <%= link_to 'Back', organizations_path %>

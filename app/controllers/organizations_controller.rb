@@ -10,6 +10,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @organization = Organization.find(params[:id])
   end
 
   # GET /organizations/new
@@ -26,7 +27,7 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.create(
-      name: organization_params[:id],
+      name: organization_params[:name],
       city: organization_params[:city],
       state: organization_params[:state],
       photo_url: organization_params[:photo_url],
@@ -60,6 +61,7 @@ class OrganizationsController < ApplicationController
   # DELETE /organizations/1
   # DELETE /organizations/1.json
   def destroy
+    @organization = Organization.find(params[:id])
     @organization.destroy
     respond_to do |format|
       format.html { redirect_to organizations_url, notice: 'Organization was successfully destroyed.' }
