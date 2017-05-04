@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'scaffold/Organization'
+
   devise_for :users
+  resources :organizations do
+    resources :events
+  end
+
   root to: 'client#index'
   get '*path', to: 'client#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

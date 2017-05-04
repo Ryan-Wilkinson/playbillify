@@ -24,5 +24,5 @@ Things you may want to cover:
 
 * ...
 
-*Rush's Comment on README
 *Erin's comment on README
+
