@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date: MyString
+  venue: MyString
+  city: MyString
+  state: MyString
+  organization_id: 1
+  estimated_attendees: 1
+  photo_url: MyString
+  deadline: 2017-05-03
+  user_id: 1
+
+two:
+  name: MyString
+  date: MyString
+  venue: MyString
+  city: MyString
+  state: MyString
+  organization_id: 1
+  estimated_attendees: 1
+  photo_url: MyString
+  deadline: 2017-05-03
+  user_id: 1
