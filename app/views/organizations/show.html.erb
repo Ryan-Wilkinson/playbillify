@@ -2,6 +2,9 @@
 
 <h1><%= @organization.name %></h1>
 <%= @organization.city %>, <%= @organization.state %>
+<p>this organization profile created <%= time_ago_in_words(@organization.created_at) %> ago</p>
+
+
 
 <br>
 <br>
