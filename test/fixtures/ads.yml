@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  size: MyString
+  price: 1.5
+  advertiser_id: 1
+  event_id: 1
+  photo_url: MyString
+  dimensions: MyString
+
+two:
+  size: MyString
+  price: 1.5
+  advertiser_id: 1
+  event_id: 1
+  photo_url: MyString
+  dimensions: MyString
