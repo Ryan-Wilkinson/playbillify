@@ -38,10 +38,17 @@ class AdsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @ad = Ad.find(params[:id])
+    @event = @ad.event
+    @organization = @ad.event.organization
   end
 
   def update
-
+    @ad = Ad.find(params[:id])
+    @event = @ad.event
+    @organization = @ad.event.organization
+    @ad.update(ad_params)
+    redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
 
   # DELETE /events/1
@@ -58,7 +65,7 @@ class AdsController < ApplicationController
     def ad_params
       params.require(:ad)
         .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions)
-        .merge(organization_id: params[:organization_id], event_id: params[:event_id])
+        .merge(event_id: params[:event_id])
     end
 end
 
