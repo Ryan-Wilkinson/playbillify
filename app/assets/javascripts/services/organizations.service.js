@@ -8,6 +8,7 @@ function OrganizationsService($http, $stateParams) {
   const self = this;
 
   self.loadOrgDetails = loadOrgDetails;
+  self.addOrganization = addOrganization;
 
 
   function loadOrgDetails() {
@@ -16,5 +17,10 @@ function OrganizationsService($http, $stateParams) {
     return $http
       .get('/api/organizations/' + orgId)
   };
+
+  function addOrganization(newOrg) {
+  	return $http
+  	.post('/api/organizations', newOrg)
+  }
 
 }

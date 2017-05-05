@@ -12,34 +12,38 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular/angular
-//= require angular-ui-router/release/angular-ui-router
+//* require angular/angular
+//* require angular-ui-router/release/angular-ui-router
 //= require_self
 //= require_tree .
 
-angular
-  .module('playbillifyApp', ['ui.router'])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/',
-        component: 'homePage'
-      })
-      .state('organizationsShow', {
-        url: '/organizations/:id',
-        component: 'organizationsShow'
-      })
-      .state('eventsNew', {
-        url: '/organizations/:id/events/new',
-        component: 'eventsNew'
-      });
+// angular
+//   .module('playbillifyApp', ['ui.router'])
+//   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+//     $stateProvider
+//       .state('home', {
+//         url: '/',
+//         component: 'homePage'
+//       })
+//       .state('organizationsNew', {
+//       	url: '/organizations/new',
+//       	component: 'organizationsNew'
+//       })
+//       .state('organizationsShow', {
+//         url: '/organizations/:id',
+//         component: 'organizationsShow'
+//       })
+//       .state('eventsNew', {
+//         url: '/organizations/:id/events/new',
+//         component: 'eventsNew'
+//       });
 
-    // default fall back route
-    $urlRouterProvider.otherwise('/');
+//     // default fall back route
+//     $urlRouterProvider.otherwise('/');
 
-    // enable HTML5 Mode for SEO
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
-  });
+//     // enable HTML5 Mode for SEO
+//     $locationProvider.html5Mode({
+//       enabled: true,
+//       requireBase: false
+//     });
+//   });

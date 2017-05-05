@@ -3,14 +3,12 @@ Rails.application.routes.draw do
 		registrations: 'users/registrations'
 	}
 
-  get 'scaffold/Organization'
+  get 'static_pages/home'
+	get 'scaffold/Organization'
 
-  namespace :api do
-    resources :organizations do
-      resources :events
-    end
+	root 'static_pages#home'
+
+	resources :organizations do
+    resources :events
   end
-
-  root to: 'client#index'
-  get '*path', to: 'client#index'
 end
