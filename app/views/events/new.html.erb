@@ -1,0 +1,32 @@
+<h2>New Event</h2>
+
+<%= form_for [@organization, @event] do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	
+	<%= f.label :venue %>
+	<%= f.text_field :venue %>
+
+	<%= f.label :city %>
+	<%= f.text_field :city %>
+
+	<%= f.label :state %>
+	<%= f.text_field :state %>
+
+	<%= f.label :estimated_attendees %>
+	<%= f.text_field :estimated_attendees %>
+
+	<%= f.label :photo_url %>
+	<%= f.text_field :photo_url %>
+
+	<%= f.label :deadline %>
+	<%= f.text_field :deadline %>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+
+	<%= f.label :date %>
+	<%= f.text_field :date %>
+
+	<%= f.submit %>
+<% end -%>
