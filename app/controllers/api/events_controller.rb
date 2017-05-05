@@ -26,38 +26,10 @@ class Api::EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(
-      event_params
-)
+    @event = Event.new(event_params)
     render json: @event
-    if @event.save
-      binding.pry
     end
-  end
 
-
-  # def create
-  #   @event = Event.create(
-  #     name: event_params[:name],
-  #     city: event_params[:city],
-  #     state: event_params[:state],
-  #     venue: event_params[:venue],
-  #     estimated_attendees: event_params[:event_attendees],
-  #     deadline: event_params[:deadline],
-  #     photo_url: event_params[:photo_url],
-  #     user_id: current_user.id
-  #     )
-  #   respond_to do |format|
-  #     if @event.save
-  #       render json: @event
-  #     else
-  #       render json: @event
-  #     end
-  #   end
-  # end
-
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
@@ -90,9 +62,7 @@ class Api::EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params
-        .merge(user_id: current_user)
-        .permit(:name, :city, :state, :photo_url, :date, :deadline, :estimated_attendees, :venue, :organization_id, :user_id)
-
+        .permit(:name, :city, :state, :photo_url, :date, :deadline, :estimated_attendees, :venue, :organization_id, :description)
     end
 end
 

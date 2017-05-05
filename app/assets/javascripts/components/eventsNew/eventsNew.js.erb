@@ -17,7 +17,7 @@ function EventNewController(EventsService, $state) {
     EventsService
     .addEvent(newEvent)
     .then(function () {
-      $state.go('/')
+      $state.go('home')
     })
   }
 }
