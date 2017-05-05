@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 	root 'static_pages#home'
 
 	resources :organizations do
-    resources :events
+    resources :events do
+      resources :ads
+    end
   end
 end
