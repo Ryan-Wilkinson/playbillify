@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'angular_rails_csrf'
 gem 'devise'
+gem 'cancancan', '~> 1.10'
+gem 'rolify'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

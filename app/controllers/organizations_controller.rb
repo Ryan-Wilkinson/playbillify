@@ -19,6 +19,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1/edit
   def edit
   	@organization = Organization.find(params[:id])
+    authorize! :edit, @organization
   end
 
   # POST /organizations
