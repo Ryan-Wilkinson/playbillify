@@ -1,2 +1,11 @@
 <h1><%= @event.name %></h1>
 <%= @event.city %>, <%= @event.state %>
+
+
+<%= link_to	"Edit", edit_organization_event_path(@event.organization, @event) %>
+
+
+
+<%= form_for @event, url: "/organizations/#{@event.organization.id}/events/#{@event.id}" , method: "DELETE" do |f| %>
+<%= f.submit "Delete", data: { confirm: "Are you sure you want to delete #{@event.name}?"} %>
+<% end -%>

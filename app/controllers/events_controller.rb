@@ -31,15 +31,23 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+		@event = Event.find(params[:id])
+		@organization = @event.organization
   end
 
   def update
-
+  	@event = Event.find(params[:id])
+  	@organization = @event.organization
+  	@event.update(event_params)
+  	redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
 
   # DELETE /events/1
   def destroy
+  	@event = Event.find(params[:id])
+  	@organization = @event.organization
     @event.destroy
+    redirect_to "/organizations/#{@organization.id}"
   end
 
   private
