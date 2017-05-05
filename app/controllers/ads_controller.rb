@@ -26,9 +26,9 @@ class AdsController < ApplicationController
     	advertiser_id: ad_params[:advertiser_id],
     	event_id: ad_params[:event_id]
     	)
-    binding.pry
     @event = @ad.event
     @organization = @event.organization
+    redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
 
   # GET /events/1
