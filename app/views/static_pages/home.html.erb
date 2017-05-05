@@ -1,17 +1,1 @@
-<h1>You're Awesome</h1>
-<h6>Your Organizations</h6>
-<% @organizations.each do |organization|%>
-  <p>name: <%= organization.name %></p>
-  <p>location: <%= organization.city%></p>
-  <p><%= link_to 'Manage this organization', organization_path(organization)%></p>
-
-  <% if can? :update, @organizations %>
-  <p><%= link_to 'Edit this organization', edit_organization_path(organization)%></p>
-  <% end %>
-  <% if can? :destroy, @organizations %>
-  <p><%= link_to 'Delete Organization', organization_path(organization), method: :delete, data:{confirm: "Are you sure you want to delete #{organization.name}"} %></p>
-  <% end %>
-
-<% end %>
-
-
+<h1>HOME PAGE</h1>
