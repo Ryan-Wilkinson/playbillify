@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 	}
 
   get 'static_pages/home'
-	get 'scaffold/Organization'
-
 	root 'static_pages#home'
 
 	resources :organizations do
