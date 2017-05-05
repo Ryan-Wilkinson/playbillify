@@ -1,8 +1,13 @@
 class AdsController < ApplicationController
 
-  # GET /events
   def index
     @ads = Ad.all
+  end
+
+  # GET /events/1
+  # GET /events/1.json
+  def show
+    @ad = Ad.find(params[:id])
   end
 
   # GET /events/new
@@ -34,7 +39,6 @@ class AdsController < ApplicationController
   # GET /events/1/edit
   def edit
   end
-
 
   def update
 
