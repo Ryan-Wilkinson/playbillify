@@ -1,0 +1,11 @@
+<h1><%= @ad.size %> </h1>
+Dimensions: <%= @ad.dimensions %>
+<br>
+Price: <%= @ad.price %>
+<%= @organization %>
+<%= @event %>
+
+<%= form_for @ad, url: "/organizations/#{@ad.event.organization.id}/events/#{@ad.event.id}/ads/#{@ad.id}" , method: "DELETE" do |f| %>
+<%= f.submit "Delete", data: { confirm: "Are you sure you want to delete this ad?"} %>
+<% end -%>
+

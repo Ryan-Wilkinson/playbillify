@@ -47,7 +47,10 @@ class AdsController < ApplicationController
   # DELETE /events/1
   def destroy
     @ad = Ad.find(params[:id])
+    @event = @ad.event
+    @organization = @event.organization
     @ad.destroy
+    redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
 
   private
