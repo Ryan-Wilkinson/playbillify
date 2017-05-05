@@ -24,6 +24,10 @@
 	Size: <%= ad.size %><br>
 	Price: $<%= ad.price %><br>
 	Dimensions: <%= ad.dimensions %><br>
+  <%= link_to "Edit", edit_organization_event_ad_path(ad.event.organization, ad.event, ad) %><br>
+  <%= form_for ad, url: "/organizations/#{ad.event.organization.id}/events/#{ad.event.id}/ads/#{ad.id}" , method: "DELETE" do |f| %>
+  <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete this ad?"} %>
+  <% end -%>
 	===============================
 	<br>
 <% end -%>
