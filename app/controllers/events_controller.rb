@@ -11,7 +11,6 @@ class Api::EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find_by(user_id: current_user.id)
-    render json: @event
   end
 
   # GET /events/new
@@ -27,7 +26,6 @@ class Api::EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    render json: @event
     end
 
   def update
