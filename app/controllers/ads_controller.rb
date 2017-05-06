@@ -28,6 +28,7 @@ class AdsController < ApplicationController
 
   def purchased_ads
     @user = current_user
+    @ads = Ad.where(advertiser_id: @user.id)
   end
 
   # GET /events/new
