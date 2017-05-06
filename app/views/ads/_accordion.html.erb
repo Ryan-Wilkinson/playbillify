@@ -16,7 +16,7 @@
           <ul class="list-group">
             <% @unique_ads.each do |ad| %>
               <% if ad.event_id == event.id %>
-                <li class="list-group-item"><strong><%= ad.size %></strong> &middot; <%= number_to_currency(ad.price) %> &middot; <%=  @ad_count = Ad.where(:size => ad.size, :price => ad.price, :event_id => ad.event_id, :dimensions => ad.dimensions).size %> available <button class='view-details-button'><%= link_to 'View Details', organization_event_ad_path(ad.event.organization_id, ad.event_id, ad.id) %></button> </li>
+                <li class="list-group-item"><strong><%= ad.size %></strong> &middot; <%= number_to_currency(ad.price) %> &middot; <%=  @ad_count = Ad.where(:advertiser_id => nil, :size => ad.size, :price => ad.price, :event_id => ad.event_id, :dimensions => ad.dimensions).size %> available <button class='view-details-button'><%= link_to 'View Details', organization_event_ad_path(ad.event.organization_id, ad.event_id, ad.id) %></button> </li>
               <% end -%>
             <% end -%>
           </ul>
