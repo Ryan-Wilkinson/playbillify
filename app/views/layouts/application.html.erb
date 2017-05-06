@@ -17,6 +17,7 @@
 	    <%= link_to 'Edit account', edit_user_registration_path, target: '_self' %>
 	    <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %>
 	  <% elsif user_signed_in? %>
+
 	    <%= link_to 'Home', root_path %>
 	    <%= link_to 'Edit account', edit_user_registration_path, target: '_self' %>
 	    <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %>

@@ -1,8 +1,9 @@
   <h4><%= event.name %> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
   </h4>
+  <% unless event.photo_url.nil? %>
   <%= image_tag(event.photo_url, width: 100) %>
+  <% end %>
   <div>Event: <%= event.name %></div>
-  <div>Organization: <%= event.organization.name %></div>
   <div>Location: <%= event.venue %> | <%= event.city %>, <%= event.state %></div>
 
 <!-- Collapsible Area-->

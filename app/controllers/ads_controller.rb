@@ -9,6 +9,11 @@ class AdsController < ApplicationController
     end
     @events = Event.all
     @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
+     if params[:search]
+       @ads = Ad.search(params[:search]).order("created_at DESC")
+     else
+       @ads = Ad.all.order("created_at DESC")
+     end
   end
 
 
