@@ -6,7 +6,8 @@ class AdsController < ApplicationController
     @ads.each do |ad|
       identical_ads.push(ad)
     end
-    @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}.sort_by(&:event_id)
+    @events = Event.all
+    @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
   end
 
   # GET /events/1

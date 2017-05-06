@@ -1,26 +1,24 @@
-  <h3><%= ad.size %></h3>
-  <%= image_tag(ad.event.photo_url, width: 60) %>
-  <div>Event: <%= ad.event.name %></div>
-  <div>Organization: <%= ad.event.organization.name %></div>
-  <div>Price: <%= number_to_currency(ad.price) %></div>
-  <div>Dimensions: <%= ad.dimensions %></div>
-  <div>Number of Ads Available: <%=  @ad_count = Ad.where(:size => ad.size, :price => ad.price, :event_id => ad.event_id, :dimensions => ad.dimensions).size %>
-  <%= link_to 'View Details', organization_event_ad_path(ad.event.organization_id, ad.event_id, ad.id) %>
+  <h3><%= event.name %></h3>
+  <%= image_tag(event.photo_url, width: 100) %>
+  <div>Event: <%= event.name %></div>
+  <div>Organization: <%= event.organization.name %></div>
+  <div>Location: <%= event.venue %> | <%= event.city %>, <%= event.state %></div>
 
 <!-- Collapsible Area-->
   <div class="panel-group">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse1">Collapsible list group</a>
+            <a data-toggle="collapse" href="#collapse<%= i %>">View Available Ads &#8595;</a>
           </h4>
         </div>
-        <div id="collapse1" + index class="panel-collapse collapse">
+        <div id="collapse<%= i %>" + index class="panel-collapse collapse">
           <ul class="list-group">
-            <li class="list-group-item">One</li>
-            <li class="list-group-item">Two</li>
-            <li class="list-group-item">Three</li>
+            <% @unique_ads.each do |ad| %>
+              <% if ad.event_id == event.id %>
+                <li class="list-group-item"><strong><%= ad.size %></strong> &middot; <%= number_to_currency(ad.price) %> &middot; <%=  @ad_count = Ad.where(:size => ad.size, :price => ad.price, :event_id => ad.event_id, :dimensions => ad.dimensions).size %> available <button class='view-details-button'><%= link_to 'View Details', organization_event_ad_path(ad.event.organization_id, ad.event_id, ad.id) %></button> </li>
+              <% end -%>
+            <% end -%>
           </ul>
-          <div class="panel-footer">Footer</div>
-        </div>
       </div>
+  </div>

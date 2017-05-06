@@ -1,13 +1,18 @@
-<h1><%= @ad.size %> </h1>
+<h1><%= @ad.event.name %> </h1>
+Organization: <%= @ad.event.organization.name %><br>
 Dimensions: <%= @ad.dimensions %>
 <br>
-Price: <%= @ad.price %>
+Price: <%= number_to_currency(@ad.price) %>
 <%= @organization %>
-<%= @event %>
-
-<br><br>
+<%= @event %><br>
+<%= @ad_count = Ad.where(:size => @ad.size, :price => @ad.price, :event_id => @ad.event_id, :dimensions => @ad.dimensions).size %> ad spots left!
+<br>
+<button><%= link_to 'Buy Ad Spot' %></button>
+<br>
+<br>
 <%= link_to "Edit", edit_organization_event_ad_path(@ad.event.organization, @ad.event, @ad) %><br>
 <%= form_for @ad, url: "/organizations/#{@ad.event.organization.id}/events/#{@ad.event.id}/ads/#{@ad.id}" , method: "DELETE" do |f| %>
 <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete this ad?"} %>
 <% end -%>
+
 

@@ -1,8 +1,7 @@
-<h1>Ads</h1>
-<% @unique_ads.each_with_index do |ad, index| %>
-<div>
-  <%= render 'accordion', ad: ad, i: index %>
-</div>
+<h1>Available Ads</h1>
+
+<% @events.each_with_index do |event, index| %>
+  <%= render 'accordion', event: event, i: index%>
 <% end %>
 
 
