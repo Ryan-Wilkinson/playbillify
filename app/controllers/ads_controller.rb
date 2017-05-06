@@ -1,6 +1,7 @@
 class AdsController < ApplicationController
 
   def index
+    @organizations = Organization.all
     identical_ads = []
     @ads = Ad.where(:advertiser_id => nil)
     @ads.each do |ad|
