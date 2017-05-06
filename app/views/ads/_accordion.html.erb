@@ -1,4 +1,5 @@
-  <h3><%= event.name %></h3>
+  <h4><%= event.name %> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+  </h4>
   <%= image_tag(event.photo_url, width: 100) %>
   <div>Event: <%= event.name %></div>
   <div>Organization: <%= event.organization.name %></div>
@@ -9,10 +10,14 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse<%= i %>">View Available Ads &#8595;</a>
+            <a data-toggle="collapse" href="#collapse<%= i %>">View Details &amp Available Ads &#8595;</a>
           </h4>
         </div>
         <div id="collapse<%= i %>" + index class="panel-collapse collapse">
+          <div class="list-group-item list-group-item-info">
+            <strong>Event Description: </strong><%= event.description %><br>
+            <strong>Estimated Attendance: </strong> <%= event.estimated_attendees %>
+          </div>
           <ul class="list-group">
             <% @unique_ads.each do |ad| %>
               <% if ad.event_id == event.id %>
@@ -22,3 +27,7 @@
           </ul>
       </div>
   </div>
+  <br>
+  <br>
+
+

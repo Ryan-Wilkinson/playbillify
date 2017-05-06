@@ -1,7 +1,6 @@
 <h1>Available Ads</h1>
 
-<% @events.each_with_index do |event, index| %>
-  <%= render 'accordion', event: event, i: index%>
-<% end %>
-
+  <% @events.each_with_index do |event, index| %>
+    <%= render 'accordion', event: event, i: index%>
+  <% end %>
 
