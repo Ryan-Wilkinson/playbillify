@@ -1,7 +1,13 @@
 class AdsController < ApplicationController
 
   def index
-    @ads = Ad.all
+    identical_ads = []
+    @ads = Ad.where(:advertiser_id => nil)
+    @ads.each do |ad|
+      identical_ads.push(ad)
+    end
+    @events = Event.all
+    @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
   end
 
   # GET /events/1
