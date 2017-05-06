@@ -1,4 +1,4 @@
-  <h4><%= event.name %> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+  <h4><%= event.name %></a>
   </h4>
   <% unless event.photo_url.nil? %>
   <%= image_tag(event.photo_url, width: 100) %>
@@ -11,7 +11,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse<%= i %>">View Details &amp Available Ads &#8595;</a>
+            <a data-toggle="collapse" href="#collapse<%= i %>">View Details and Available Ads &#8595;</a>
           </h4>
         </div>
         <div id="collapse<%= i %>" + index class="panel-collapse collapse">
@@ -22,7 +22,11 @@
           <ul class="list-group">
             <% @unique_ads.each do |ad| %>
               <% if ad.event_id == event.id %>
-                <li class="list-group-item"><strong><%= ad.size %></strong> &middot; <%= number_to_currency(ad.price) %> &middot; <%=  @ad_count = Ad.where(:advertiser_id => nil, :size => ad.size, :price => ad.price, :event_id => ad.event_id, :dimensions => ad.dimensions).size %> available <button class='view-details-button'><%= link_to 'View Details', organization_event_ad_path(ad.event.organization_id, ad.event_id, ad.id) %></button> </li>
+                <li class="list-group-item"><strong><%= ad.size %></strong>
+                  &middot; <%= number_to_currency(ad.price) %>
+                  &middot; <%=  @ad_count = Ad.where(:advertiser_id => nil, :size => ad.size, :price => ad.price, :event_id => ad.event_id, :dimensions => ad.dimensions).size %> available
+                  <button class='view-details-button'><%= link_to 'View Details', organization_event_ad_path(ad.event.organization_id, ad.event_id, ad.id) %></button>
+                </li>
               <% end -%>
             <% end -%>
           </ul>
