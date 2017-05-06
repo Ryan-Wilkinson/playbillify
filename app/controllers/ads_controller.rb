@@ -13,8 +13,6 @@ class AdsController < ApplicationController
   end
 
 
-  # GET /events/1
-  # GET /events/1.json
   def show
     @ad = Ad.find(params[:id])
   end
@@ -28,7 +26,7 @@ class AdsController < ApplicationController
 
   def purchased_ads
     @user = current_user
-    @ads = Ad.where(advertiser_id: @user.id)
+    @ads = Ad.where(advertiser_id: @user.id).order('updated_at DESC')
   end
 
   # GET /events/new
@@ -64,11 +62,7 @@ class AdsController < ApplicationController
     @event = @ad.event
     @organization = @ad.event.organization
     @ad.update(ad_params)
-    if current_user.user_type == 'advertiser'
-      redirect_to "/ads/purchased-ads"
-    else
-      redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
-    end
+    redirect_after_ad_update()
   end
 
   # DELETE /events/1
@@ -86,6 +80,18 @@ class AdsController < ApplicationController
       params.require(:ad)
         .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions)
         .merge(event_id: params[:event_id])
+    end
+
+    def redirect_after_ad_update()
+      if current_user.user_type == 'advertiser'
+        if @ad.photo_url == nil || @ad.photo_url == ""
+          redirect_to "/ads/#{@ad.id}/add-image"
+        else
+          redirect_to "/ads/purchased-ads"
+        end
+      else
+        redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
+      end
     end
 end
 
