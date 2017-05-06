@@ -13,18 +13,7 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-  	@event = Event.create(
-      name: event_params[:name],
-      city: event_params[:city],
-      state: event_params[:state],
-      photo_url: event_params[:photo_url],
-      date: event_params[:date],
-      deadline: event_params[:deadline],
-      estimated_attendees: event_params[:estimated_attendees],
-      venue: event_params[:venue],
-      description: event_params[:description],
-      organization_id: params[:organization_id]
-      )
+  	@event = Event.create(event_params)
   	@organization = @event.organization
   	redirect_to "/organizations/#{@organization.id}"
   end

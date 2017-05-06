@@ -18,14 +18,9 @@ class AdsController < ApplicationController
   end
 
   def create
-    @ad = Ad.create(
-    	size: ad_params[:size],
-    	price: ad_params[:price],
-    	photo_url: ad_params[:photo_url],
-    	dimensions: ad_params[:dimensions],
-    	advertiser_id: ad_params[:advertiser_id],
-    	event_id: ad_params[:event_id]
-    	)
+  	params[:count].to_i.times do
+    	@ad = Ad.create(ad_params)
+    end
     @event = @ad.event
     @organization = @event.organization
     redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
