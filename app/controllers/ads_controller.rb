@@ -9,6 +9,7 @@ class AdsController < ApplicationController
     end
     @events = Event.all
     @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
+
   end
 
 
@@ -23,6 +24,10 @@ class AdsController < ApplicationController
     @event = Event.find(params[:event_id])
     @ad = Ad.find(params[:id])
     @advertiser_id = current_user.id
+  end
+
+  def purchased_ads
+    @user = current_user
   end
 
   # GET /events/new
@@ -58,7 +63,11 @@ class AdsController < ApplicationController
     @event = @ad.event
     @organization = @ad.event.organization
     @ad.update(ad_params)
-    redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
+    if current_user.user_type == 'advertiser'
+      redirect_to "/ads/purchased-ads"
+    else
+      redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
+    end
   end
 
   # DELETE /events/1
