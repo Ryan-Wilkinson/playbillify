@@ -1,6 +1,11 @@
 <h1>Available Ads</h1>
 
+
   <% @events.each_with_index do |event, index| %>
+    <% if event.ads.select{|ad| ad.advertiser_id == nil}.size > 0 %>
     <%= render 'accordion', event: event, i: index%>
+    <% end %>
   <% end %>
+
+
 
