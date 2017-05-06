@@ -1,0 +1,22 @@
+<h1>Review Purchase</h1>
+<h3><%= @ad.event.name %> </h3>
+Organization: <%= @ad.event.organization.name %><br>
+Dimensions: <%= @ad.dimensions %>
+<br>
+Price: <%= number_to_currency(@ad.price) %>
+
+<br>
+<br>
+
+<%= form_for [@organization, @event, @ad] do |f| %>
+  <p>
+    <%= f.label :advertiser_id %><br>
+    <%= f.text_field :advertiser_id, placeholder: @advertiser_id %>
+  </p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<br>
+<br>
+

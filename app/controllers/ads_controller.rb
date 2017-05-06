@@ -10,10 +10,18 @@ class AdsController < ApplicationController
     @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
   end
 
+
   # GET /events/1
   # GET /events/1.json
   def show
     @ad = Ad.find(params[:id])
+  end
+
+  def purchase
+    @organization = Organization.find(params[:organization_id])
+    @event = Event.find(params[:event_id])
+    @ad = Ad.find(params[:id])
+    @advertiser_id = current_user.id
   end
 
   # GET /events/new

@@ -5,9 +5,9 @@ Dimensions: <%= @ad.dimensions %>
 Price: <%= number_to_currency(@ad.price) %>
 <%= @organization %>
 <%= @event %><br>
-<%= @ad_count = Ad.where(:size => @ad.size, :price => @ad.price, :event_id => @ad.event_id, :dimensions => @ad.dimensions).size %> ad spots left!
+<%= @ad_count = Ad.where(:advertiser_id => nil, :size => @ad.size, :price => @ad.price, :event_id => @ad.event_id, :dimensions => @ad.dimensions).size %> ad spots left!
 <br>
-<button><%= link_to 'Buy Ad Spot' %></button>
+<button><%= link_to 'Buy Ad Spot', ads_purchase_path(@ad.event.organization_id, @ad.event_id, @ad.id) %></button>
 <br>
 <br>
 <%= link_to "Edit", edit_organization_event_ad_path(@ad.event.organization, @ad.event, @ad) %><br>
