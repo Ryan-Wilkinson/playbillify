@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     		if resource.user_type == 'organization'
     	  	'/organizations'
     		else
-    			'/ads'
+    			'/enter-business-details'
     		end
       end
 end
