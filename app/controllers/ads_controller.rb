@@ -12,6 +12,10 @@ class AdsController < ApplicationController
 
   end
 
+  def add_image
+    @ad = Ad.find(params[:id])
+  end
+
 
   def show
     @ad = Ad.find(params[:id])
