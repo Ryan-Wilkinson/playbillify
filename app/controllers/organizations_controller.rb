@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations
   def index
-    @organizations = Organization.all
+    @organizations = Organization.where(user_id: current_user.id)
   end
 
   # GET /organizations/1
@@ -19,7 +19,6 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1/edit
   def edit
   	@organization = Organization.find(params[:id])
-    authorize! :edit, @organization
   end
 
   # POST /organizations

@@ -7,7 +7,9 @@ Price: <%= number_to_currency(@ad.price) %>
 <%= @event %><br>
 <%= @ad_count = Ad.where(:advertiser_id => nil, :size => @ad.size, :price => @ad.price, :event_id => @ad.event_id, :dimensions => @ad.dimensions).size %> ad spots left!
 <br>
-<button><%= link_to 'Buy Ad Spot', ads_purchase_path(@ad.event.organization_id, @ad.event_id, @ad.id) %></button>
+<% if @user.user_type == 'advertiser' %>
+  <button><%= link_to 'Buy Ad Spot', ads_purchase_path(@ad.event.organization_id, @ad.event_id, @ad.id) %></button>
+<% end %>
 <br>
 <br>
 <% if can? :update, @article %>
