@@ -9,6 +9,9 @@ class EventsController < ApplicationController
   # GET /events/1
   def show
   	@event = Event.find(params[:id])
+    @all_ads = @event.ads
+    @sold_ads = Ad.where(event: @event).where.not(advertiser_id: nil)
+    calculate_revenue(@sold_ads)
   end
 
   # POST /events
@@ -45,6 +48,14 @@ class EventsController < ApplicationController
       params.require(:event)
         .permit(:name, :city, :state, :photo_url, :date, :deadline, :estimated_attendees, :venue, :description)
         .merge(organization_id: params[:organization_id])
+    end
+
+    def calculate_revenue(sold_ads)
+      sold_ad_prices = []
+      sold_ads.each do |ad|
+        sold_ad_prices.push(ad.price)
+      end
+      @revenue = sold_ad_prices.reduce(0, :+)
     end
 end
 
