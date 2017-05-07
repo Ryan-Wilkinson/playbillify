@@ -2,8 +2,8 @@
 
 <%= form_for [@ad.event.organization, @ad.event, @ad] do |f| %>
   <p>
-  <%= f.label :photo_url %><br>
-  <%= f.text_field :photo_url %>
+  <%= f.label :image %><br>
+  <%= form.file_field :image %>
   </p>
 <%= f.submit %>
 <% end %>

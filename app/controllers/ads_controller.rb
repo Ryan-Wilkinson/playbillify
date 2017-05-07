@@ -82,7 +82,7 @@ class AdsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
       params.require(:ad)
-        .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions)
+        .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions, :image)
         .merge(event_id: params[:event_id])
     end
 
