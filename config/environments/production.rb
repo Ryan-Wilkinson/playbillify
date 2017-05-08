@@ -83,4 +83,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('playbillify'),
+      access_key_id: ENV.fetch('AKIAJQLLTBC7BWYQAN7A'),
+      secret_access_key: ENV.fetch('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'),
+      s3_region: ENV.fetch('US_East'),
+    }
+  }
+
 end
