@@ -34,7 +34,10 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem 'materialize-sass'
-
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2.3.0'
+gem "chartkick"
+gem 'groupdate'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
