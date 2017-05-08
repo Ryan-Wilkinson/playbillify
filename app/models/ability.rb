@@ -30,12 +30,12 @@ class Ability
     def initialize(user)
         user ||= User.new # guest user (not logged in)
         if user.organization?
-          can :read, Organization, user_id: user.id
+          can :manage, Organization, user_id: user.id
           can :manage, Event
-          can :manage, Ad
+          can :create, Ad
         elsif user.advertiser?
-          # can :manage, :purchased_ads
           can :read, Organization
+          can :manage, Ad, user_id: user.id
         end
     end
 end
