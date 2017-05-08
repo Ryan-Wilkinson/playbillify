@@ -9,6 +9,9 @@ class AdsController < ApplicationController
     end
     @events = Event.all
     @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
+
+  def add_image
+    @ad = Ad.find(params[:id])
   end
 
   def purchase
@@ -73,7 +76,7 @@ class AdsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
       params.require(:ad)
-        .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions)
+        .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions, :image)
         .merge(event_id: params[:event_id])
     end
 

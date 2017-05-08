@@ -1,0 +1,37 @@
+<h1>Enter business information</h1>
+
+
+<%= form_for [@business] do |f| %>
+  <p>
+    <%= f.label "Business Name" %><br>
+    <%= f.text_field :business_name %>
+  </p>
+  <p>
+    <%= f.label "Address 1" %><br>
+    <%= f.text_field :business_address1 %>
+  </p>
+  <p>
+    <%= f.label "Address 2" %><br>
+    <%= f.text_field :business_address2 %>
+  </p>
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :business_city %>
+  </p>
+  <p>
+    <%= f.label :state %><br>
+    <%= f.text_field :business_state %>
+  </p>
+  <p>
+    <%= f.label "Zip code" %><br>
+    <%= f.text_field :business_zip %>
+  </p>
+  <p>
+    <%= f.label "Phone number" %><br>
+    <%= f.text_field :business_phone %>
+  </p>
+
+ <p>
+    <%= f.submit %>
+  </p>
+<% end %>

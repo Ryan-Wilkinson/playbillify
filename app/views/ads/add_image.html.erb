@@ -1,0 +1,9 @@
+<h1>Add image</h1>
+
+<%= form_for [@ad.event.organization, @ad.event, @ad] do |f| %>
+  <p>
+  <%= f.label :photo_url %><br>
+  <%= f.text_field :photo_url %>
+  </p>
+<%= f.submit %>
+<% end %>
