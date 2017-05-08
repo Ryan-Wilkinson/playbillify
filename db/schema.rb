@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507204653) do
+ActiveRecord::Schema.define(version: 20170508152219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 20170507204653) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "businesses", force: :cascade do |t|
+    t.string   "business_name"
+    t.string   "business_address1"
+    t.string   "business_address2"
+    t.string   "business_city"
+    t.string   "business_state"
+    t.string   "business_zip"
+    t.string   "business_phone"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -83,12 +96,6 @@ ActiveRecord::Schema.define(version: 20170507204653) do
     t.string   "last_name"
     t.boolean  "is_admin",               default: false
     t.string   "user_type"
-    t.string   "business_name"
-    t.string   "business_street1"
-    t.string   "business_street2"
-    t.string   "business_city"
-    t.string   "business_state"
-    t.string   "business_phone"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

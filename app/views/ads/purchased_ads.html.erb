@@ -1,8 +1,12 @@
 <h1>My Purchased Ads</h1>
 <div>
-  <%= @user.business_name %>
+  <%= @user.business.business_name %>
   <br>
-  <%= @user.first_name %> <%= @user.last_name %>
+  <%= @user.business.business_address1 %> <%= @user.business.business_address2 %>
+  <br>
+  <%= @user.business.business_city %>, <%= @user.business.business_state %> <%= @user.business.business_zip %>
+  <br>
+  <%= @user.business.business_phone %>
 </div>
 <br>
 <br>
