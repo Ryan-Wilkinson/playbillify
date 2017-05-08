@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /organizations
   def index
