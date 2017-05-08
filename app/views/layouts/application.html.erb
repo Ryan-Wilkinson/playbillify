@@ -2,36 +2,50 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <script src="chartkick.js"></script>
     <title>Playbillify</title>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <style>
+
+    </style>
   </head>
 
-  <body>
-		<% if user_signed_in? && current_user.user_type == 'organization' %>
-			<%= link_to 'Home', root_path %>
-			<%= link_to 'Organizations', organizations_path %>
-	    <%= link_to 'Edit account', edit_user_registration_path, target: '_self' %>
-	    <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %>
-	  <% elsif user_signed_in? %>
-	    <%= link_to 'Home', root_path %>
-	    <%= link_to 'Edit account', edit_user_registration_path, target: '_self' %>
-	    <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %>
-	  <% else %>
-			<%= link_to 'Home', root_path %>
-	  	<%= link_to "Sign Up", new_user_registration_path %>
-	  	<%= link_to "Log In", new_user_session_path %>
-	  <% end %>
+  <body class = "grey lighten-4">
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <nav>
+      <div class="nav-wrapper blue">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        		<% if user_signed_in? && current_user.user_type == 'organization' %>
+        		  <li><%= link_to 'Home', root_path%></li>
+        			<li><%= link_to 'Organizations', organizations_path %></li>
+        	    <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+        	    <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
+        	  <% elsif user_signed_in? %>
+        	    <li><%= link_to 'Home', ads_index_path %></li>
+        	    <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+        	    <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
+        	  <% else %>
+        			<li><%= link_to 'Home', root_path %></li>
+        	  	<li><%= link_to "Sign Up", new_user_registration_path %></li>
+        	  	<li><%= link_to "Log In", new_user_session_path %></li>
+        	  <% end %>
+          </ul id="nav-mobile" class="left hide-on-med-and-down">
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+    </nav>
 
     <div class="container">
     <%= yield %>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   </body>
 </html>

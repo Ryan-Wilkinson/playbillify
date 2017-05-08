@@ -10,29 +10,32 @@
 </div>
 <br>
 <br>
-
-<div>
- <% @ads.each do |ad| %>
-  <strong><%= ad.event.name %></strong>
-  <br>
-  <%= ad.event.venue %>
-  <br>
-  <%= ad.size %>
-  <br>
-  <%= ad.dimensions %>
-  <br>
-  You paid <%= number_to_currency(ad.price) %>
-  <br>
-  <% if ad.photo_url == "" || ad.photo_url.nil? %>
-    <div class="alert alert-danger">
-      <span class="glyphicon glyphicon-exclamation-sign"></span>
-      You still need to upload your ad image!</div>
-    <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
-    <p>
-      <%= f.label :photo_url %><br>
-      <%= f.text_field :photo_url %>
-    </p>
-      <%= f.submit %>
+<% if @user.user_type == 'advertiser' %>
+  <div>
+   <% @ads.each do |ad| %>
+    <strong><%= ad.event.name %></strong>
+    <br>
+    <%= ad.event.venue %>
+    <br>
+    <%= ad.size %>
+    <br>
+    <%= ad.dimensions %>
+    <br>
+    You paid <%= number_to_currency(ad.price) %>
+    <br>
+    <% if ad.photo_url == "" || ad.photo_url.nil? %>
+      <div class="alert alert-danger">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        You still need to upload your ad image!</div>
+      <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
+      <p>
+        <%= f.label :photo_url %><br>
+        <%= f.text_field :photo_url %>
+      </p>
+        <%= f.submit %>
+      <% end %>
+    <% else %>
+      <%= image_tag(ad.photo_url, size: 150) %><br>
     <% end %>
   <% else %>
   <%= image_tag ad.image.url(:thumb) %>

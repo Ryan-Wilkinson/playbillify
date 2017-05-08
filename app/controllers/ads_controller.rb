@@ -10,14 +10,7 @@ class AdsController < ApplicationController
     @events = Event.all
     @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
 
-  end
-
   def add_image
-    @ad = Ad.find(params[:id])
-  end
-
-
-  def show
     @ad = Ad.find(params[:id])
   end
 
@@ -52,6 +45,7 @@ class AdsController < ApplicationController
   # GET /events/1
   def show
     @ad = Ad.find(params[:id])
+    @user = current_user
   end
 
   # GET /events/1/edit
