@@ -9,6 +9,7 @@ class AdsController < ApplicationController
     end
     @events = Event.all
     @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
+  end
 
   def add_image
     @ad = Ad.find(params[:id])
