@@ -18,10 +18,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  def enter_business_details
-    @user = User.find(current_user.id)
-  end
-
   #PUT /resource
   def update
     super

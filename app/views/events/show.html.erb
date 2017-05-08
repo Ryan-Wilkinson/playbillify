@@ -28,7 +28,7 @@
     <% if ad.advertiser_id.nil? %>
       Not fulfilled
       <% else %>
-      Fulfilled!
+      Fulfilled by advertiser ID <%= ad.advertiser_id %>
     <% end %>
   <%= link_to "Edit", edit_organization_event_ad_path(ad.event.organization, ad.event, ad) %><br>
   <%= form_for ad, url: "/organizations/#{ad.event.organization.id}/events/#{ad.event.id}/ads/#{ad.id}" , method: "DELETE" do |f| %>
