@@ -42,12 +42,14 @@ GEM
       railties (>= 3, <= 5.1)
     arel (7.1.4)
     awesome_print (1.7.0)
-    aws-sdk (2.3.22)
-      aws-sdk-resources (= 2.3.22)
-    aws-sdk-core (2.3.22)
+    aws-sdk (2.9.15)
+      aws-sdk-resources (= 2.9.15)
+    aws-sdk-core (2.9.15)
+      aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.3.22)
-      aws-sdk-core (= 2.3.22)
+    aws-sdk-resources (2.9.15)
+      aws-sdk-core (= 2.9.15)
+    aws-sigv4 (1.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -72,6 +74,10 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -121,7 +127,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     puma (3.8.2)
-    rack (2.0.1)
+    rack (2.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.2)
@@ -199,12 +205,13 @@ PLATFORMS
 DEPENDENCIES
   angular_rails_csrf
   awesome_print
-  aws-sdk (~> 2.3.0)
+  aws-sdk
   byebug
   cancancan (~> 1.10)
   chartkick
   coffee-rails (~> 4.2)
   devise
+  dotenv-rails
   groupdate
   jbuilder (~> 2.5)
   jquery-rails
