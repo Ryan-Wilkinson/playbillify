@@ -33,6 +33,8 @@ gem 'angular_rails_csrf'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
+gem 'materialize-sass'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
