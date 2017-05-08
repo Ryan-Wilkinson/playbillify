@@ -8,7 +8,17 @@
 <br>
 <br>
 
-<%= @event.city %>, <%= @event.state %>
+Earned Revenue<br>
+<%= number_to_currency(@revenue) %>
+<br>
+<br>
+
+Ads Sold
+<%= column_chart @sold_ads.group(:size).count %>
+
+<%= (@event.deadline.to_date - DateTime.now.to_date).to_i %> days until deadline
+
+<%= line_chart @sold_ads.group_by_day(:updated_at).count %>
 
 <br>
 <br>

@@ -42,11 +42,18 @@ GEM
       railties (>= 3, <= 5.1)
     arel (7.1.4)
     awesome_print (1.7.0)
+    aws-sdk (2.3.22)
+      aws-sdk-resources (= 2.3.22)
+    aws-sdk-core (2.3.22)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.3.22)
+      aws-sdk-core (= 2.3.22)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (1.16.0)
+    chartkick (2.2.3)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -70,10 +77,13 @@ GEM
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    groupdate (3.2.0)
+      activesupport (>= 3)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
+    jmespath (1.3.1)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -187,10 +197,13 @@ PLATFORMS
 DEPENDENCIES
   angular_rails_csrf
   awesome_print
+  aws-sdk (~> 2.3.0)
   byebug
   cancancan (~> 1.10)
+  chartkick
   coffee-rails (~> 4.2)
   devise
+  groupdate
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
