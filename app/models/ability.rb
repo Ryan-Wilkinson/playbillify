@@ -35,7 +35,6 @@ class Ability
           can :create, Ad
         elsif user.advertiser?
           can :read, Organization
-          can :manage, Ad, user_id: user.id
         end
     end
 end

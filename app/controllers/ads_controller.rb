@@ -61,7 +61,7 @@ class AdsController < ApplicationController
     @event = @ad.event
     @organization = @ad.event.organization
     @ad.update(ad_params)
-    redirect_after_ad_update()
+    redirect_after_ad_update
   end
 
   # DELETE /events/1
@@ -80,8 +80,7 @@ class AdsController < ApplicationController
         .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions, :image)
         .merge(event_id: params[:event_id])
     end
-
-    def redirect_after_ad_update()
+    def redirect_after_ad_update
       if current_user.user_type == 'advertiser'
         if @ad.photo_url == nil || @ad.photo_url == ""
           redirect_to "/ads/#{@ad.id}/add-image"

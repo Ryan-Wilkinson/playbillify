@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
@@ -29,13 +28,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'angular_rails_csrf'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem 'materialize-sass'
 gem "paperclip", "~> 5.0.0"
-gem 'aws-sdk', '~> 2.3.0'
+gem 'aws-sdk'
 gem "chartkick"
 gem 'groupdate'
 
