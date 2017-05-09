@@ -1,37 +1,42 @@
-<h1>Enter business information</h1>
-
-
+<div class='page-content'>
+<h4 class="center">Your business information.</h4>
+<br>
+<div class="container white">
 <%= form_for [@business] do |f| %>
-  <p>
+  <div class="input-field col s12">
     <%= f.label "Business Name" %><br>
     <%= f.text_field :business_name %>
-  </p>
-  <p>
+  </div>
+  <div class="input-field col s12">
     <%= f.label "Address 1" %><br>
     <%= f.text_field :business_address1 %>
-  </p>
-  <p>
+  </div>
+  <div class="input-field col s12">
     <%= f.label "Address 2" %><br>
     <%= f.text_field :business_address2 %>
-  </p>
-  <p>
+  </div>
+  <div class='row'>
+  <div class="input-field col s6">
     <%= f.label :city %><br>
     <%= f.text_field :business_city %>
-  </p>
-  <p>
+  </div>
+  <div class="input-field col s6">
     <%= f.label :state %><br>
     <%= f.text_field :business_state %>
-  </p>
-  <p>
+  </div>
+  </div>
+  <div class="input-field col s12">
     <%= f.label "Zip code" %><br>
     <%= f.text_field :business_zip %>
-  </p>
-  <p>
+  </div>
+  <div class="input-field col s12">
     <%= f.label "Phone number" %><br>
     <%= f.text_field :business_phone %>
-  </p>
+  </div>
 
- <p>
-    <%= f.submit %>
-  </p>
+  <div class="actions">
+    <%= f.submit "Browse Ads", class:'btn waves-effect waves-light' %>
+  </div>
+  <br><br>
 <% end %>
+</div>

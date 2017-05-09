@@ -17,15 +17,13 @@
     <br>
     <%= ad.event.venue %>
     <br>
-    <%= image_tag ad.image.url(:square) %>
-    <br>
     <%= ad.size %>
     <br>
     <%= ad.dimensions %>
     <br>
     You paid <%= number_to_currency(ad.price) %>
     <br>
-    <% if ad.photo_url == "" || ad.photo_url.nil? %>
+    <% if ad.image_file_name == "" || ad.image_file_name.nil? %>
       <div class="alert alert-danger">
         <span class="glyphicon glyphicon-exclamation-sign"></span>
         You still need to upload your ad image!</div>
@@ -36,14 +34,10 @@
         <%= f.submit %>
       <% end %>
     <% else %>
-      <%= image_tag(ad.photo_url, size: 150) %><br>
+      <%= image_tag(ad.image, width: 200) %><br>
     <% end %>
-  <%= image_tag ad.image.url(:thumb) %>
-
+           <br><br><br>
   <% end %>
-  <br>
-  <br>
-  <br>
  <% end %>
 </div>
 
