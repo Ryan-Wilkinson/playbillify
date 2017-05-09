@@ -1,55 +1,60 @@
-<h2 class="center">Sign Up</h2>
-<div class="container white">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+<div class='page-content'>
+  <h4 class="center">Sign up to get started</h4>
+  <br>
+  <div class="container white">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autofocus: true %>
+    <div class='row'>
+      <div class="input-field col s6">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, autofocus: true %>
+      </div>
+
+      <div class="input-field col s6">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, autofocus: true %>
+      </div>
     </div>
 
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, autofocus: true %>
-    </div>
+      <div class="input-field col s12">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+      <div class="input-field col s12">
+        <%= f.label "Password (6 characters minimum)" %>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+      <div class="input-field col s12" data-toggle="buttons-radio">
+        <%= f.label "Confirm your password" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+      <br>
+      <div class="input-field">
+          <div class="btn-group" >
+            <table>
+              <tr>
+              <p>I want to:</p>
+                <%= f.radio_button :user_type, "advertiser", :id=>"first", :style=>"display:none;" %>
+                <label for="first">Buy playbill ads on behalf of a business</label>
+                <br><br>
+                <%= f.radio_button :user_type, "organization", :id=>"second", :style=>"display:none;" %>
+                <label for="second">List, manage, and monetize playbill ads</label>
+                <br><br>
+              </tr>
+            </table>
+            <br>
+          </div>
+      </div>
 
-    <div class="field btn-group" data-toggle="buttons-radio">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <div class="actions">
+        <%= f.submit "Sign up", class:'btn waves-effect waves-light' %>
+      </div>
+        <br><br>
     </div>
-    <br>
-    <div class="field">
-        <div class="btn-group" >
-          <table>
-            <tr>
-              <%= f.radio_button :user_type, "advertiser", :id=>"first", :style=>"display:none;" %>
-              <label for="first" class="btn btn-secondary blue">Buy Ads</label>
+  <% end %>
 
-              <%= f.radio_button :user_type, "organization", :id=>"second", :style=>"display:none;" %>
-              <label for="second" class="btn btn-secondary blue">Post Ads</label>
-            </tr>
-          </table>
-          <br>
-        </div>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-  </div>
-<% end %>
-
-<% render "devise/shared/links" %>
+  <% render "devise/shared/links" %>
+</div>
