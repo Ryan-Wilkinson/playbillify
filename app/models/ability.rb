@@ -32,14 +32,22 @@ class Ability
         if user.organization?
           can :manage, Organization, user_id: user.id
           can :manage, Event, :organization => { user_id: user.id }
-          can :create, Ad, :event => { organization_id:  user.organizations.ids }
+          can :manage, Ad, :event => { :organization => { user_id: user.id }}
+          can :manage, Ad, event_id: nil
         elsif user.advertiser?
           can :read, Organization
-          can :read, Ad
-          can :update, Ad, user_id: user.id
+          can :read, Event
+          can :purchase, Ad, advertiser_id: nil
+          can :update, Ad, advertiser_id: nil
+          can :update, Ad, advertiser_id: user.id
+          can :read, Ad, advertiser_id: nil
+          can :purchased_ads, Ad
+
         end
     end
 end
+
+
 
 
 
