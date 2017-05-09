@@ -17,14 +17,17 @@
 	<%= f.label :photo_url %>
 	<%= f.text_field :photo_url %>
 
-	<%= f.label :deadline %>
+	<%= f.label "Ad image deadline" %>
 	<%= f.date_field :deadline, :required => true %>
 
 	<%= f.label :description %>
 	<%= f.text_field :description %>
 
-	<%= f.label :date %>
-	<%= f.date_field :date, :required => true %>
+	<%= f.label 'Event Start Date' %>
+	<%= f.date_field :start_date, :required => true %>
+
+	<%= f.label "Event End Date (optional)" %>
+	<%= f.date_field :end_date %>
 
 	<%= f.submit %>
 <% end -%>
