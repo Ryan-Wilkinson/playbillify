@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   get '/ads/:id/add-image' => 'ads#add_image', as: "ads_add_image"
   get '/ads/purchased-ads' => 'ads#purchased_ads', as: "ads_purchased_ads"
   get '/enter-business-details' => 'businesses#enter_business_details', as: "enter_business_details"
+  get '/ads/:id/charges/new' => 'charges#new', as: "ads_charge_path"
+  post '/ads/:id/charges/' => 'charges#create'
 
   resources :businesses
+  resources :charges
 
 	resources :organizations do
     resources :events do
