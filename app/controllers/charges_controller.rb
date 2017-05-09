@@ -4,6 +4,7 @@ class ChargesController < ApplicationController
     @event = @ad.event
     @organization = @event.organization
     @amount = @ad.price.to_i
+    @description = "#{@ad.size}: #{@event.name}"
   end
 
   def create
@@ -21,7 +22,7 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       customer: customer.id,
       amount: amount * 100,
-      description: 'Rails Stripe customer',
+      description: "#{ad.size} Ad: #{ad.event.name} (Playbillify)",
       currency: 'usd'
     )
     charge_error = nil
@@ -31,7 +32,7 @@ class ChargesController < ApplicationController
         redirect_to ads_new_charge_path(ad.id)
       else
         claim_ad(ad.id)
-        redirect_to ads_add_image_path(ad.id)
+        redirect_to ads_purchased_ads_path
       end
     else
       flash[:error] = 'one or more errors in your order'
