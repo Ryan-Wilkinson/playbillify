@@ -17,4 +17,5 @@ class User < ApplicationRecord
   def advertiser?
     user_type == "advertiser"
   end
+
 end
