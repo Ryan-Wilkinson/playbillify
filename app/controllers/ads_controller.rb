@@ -14,6 +14,7 @@ class AdsController < ApplicationController
 
   def add_image
     @ad = Ad.find(params[:id])
+    @user_email = current_user.email
   end
 
   def purchase
@@ -83,7 +84,7 @@ class AdsController < ApplicationController
     end
     def redirect_after_ad_update
       if current_user.user_type == 'advertiser'
-        if @ad.photo_url == nil || @ad.photo_url == ""
+        if @ad.image == nil || @ad.image == ""
           redirect_to "/ads/#{@ad.id}/add-image"
         else
           redirect_to "/ads/purchased-ads"

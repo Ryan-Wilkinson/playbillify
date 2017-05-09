@@ -1,1 +1,41 @@
-<h1>HOME PAGE</h1>
+<div class='hero'>
+  <div class='headline'>
+    Playbill ad sales, simplified.
+  </div>
+  <div class='sub-headline'>
+    Playbillify makes it easy for arts organizations to raise funds through program ads and for local businesses to reach customers out and about in their community.
+  </div>
+  <div class='buttons'>
+    <a href="/users/sign_up" class="waves-effect waves-light btn">Get Started</a>
+  </div>
+    <%= image_tag("computer-screen.png", width: 750, class:'computer-image')%>
+  <div>
+    <div class='section-two-header'>
+      Lorem ipsum dolor sit amet.
+    </div>
+    <div class='section-two-copy'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <div class='section-three'>
+      <ul class="tabs" id="adv-org-tabs">
+        <li class="tab col s3">
+          <a href="#test-swipe-1">For Arts Organizations</a>
+        </li>
+        <li class="tab col s3">
+          <a class="active" href="#test-swipe-2">For Local Businesses</a>
+        </li>
+      </ul>
+      <div class="col s12 white tab-partial" id="test-swipe-1">
+        <%= render 'for_arts_orgs' %>
+      </div>
+      <div class="col s12 white tab-partial" id="test-swipe-2">
+        <%= render 'for_businesses' %>
+      </div>
+      <br>
+      <br>
+      <a href="/users/sign_up" class="waves-effect waves-light btn">Sell and Manage Ads</a>
+      <a href="/users/sign_up" class="waves-effect waves-light btn red lighten-2">Purchase Ads</a>
+    </div>
+  </div>
+</div>
+

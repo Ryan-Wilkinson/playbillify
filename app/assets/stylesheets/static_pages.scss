@@ -1,3 +1,164 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav ul {
+  text-transform: uppercase;
+}
+
+
+.nav-wrapper {
+  height: 500px;
+  background: #2C2B38;
+}
+
+.brand-logo {
+  margin-left: 15px;
+}
+
+.page-content {
+  padding: 20px;
+}
+
+
+nav {
+    height: 100px;
+    line-height: 30px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 100px;
+    line-height: 30px;
+    color: #2C2B38;
+}
+
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 100px;
+        line-height: 30px;
+        color: #2C2B38;
+    }
+}
+
+.hero {
+  height: 500px;
+  background: #454451;
+  text-align: center;
+  overflow:visible;
+  margin-top: 40px;
+}
+
+.headline {
+  color: white;
+  margin: 0 auto;
+  padding-top: 40px;
+  font-size: 35px;
+}
+
+.sub-headline {
+  font-size: 14px;
+  color: lightgray;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.section-two-copy {
+  font-size: 14px;
+  color: darkgray;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+.computer-image {
+  width: 60%;
+  margin: 30px 0 10px 0;
+}
+
+.section-two {
+  display: clear;
+  height: 400px;
+  background: lightgray;
+}
+
+.section-three {
+  height: 500px;
+  background: lightgray;
+}
+
+.section-two-header {
+  font-size: 30px;
+}
+
+.fa-github {
+  color: white;
+}
+
+.navbar-fixed {
+  background: #b8dfb8;
+  color: #b8dfb8;
+}
+
+.footer {
+  bottom: 0;
+}
+
+.page-footer {
+  background: #2C2B38;
+}
+
+.tab-partial {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 275px;
+  padding: 20px;
+  overflow:auto;
+}
+
+.glyphicon {
+  font-size: 30px;
+  color: #2bbbad;
+}
+
+.tab-copy {
+  color: gray;
+  margin-top: 20px;
+}
+
+.btn {
+  margin-left: 10px;
+}
+
+.posted-ad {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+}
+
+.mailchimp-form {
+  color: white;
+  width: 50%;
+  margin: 20px;
+  padding: 20px;
+  background:#454451;
+}
+
+
+@media only screen and (max-width: 601px){
+    .computer-image {
+        width: 95%;
+    }
+}
+

@@ -10,8 +10,10 @@ class ApplicationController < ActionController::Base
       def after_sign_in_path_for(resource)
     		if resource.user_type == 'organization'
     	  	'/organizations'
-    		else
+    		elsif current_user.business.nil?
     			'/businesses/new'
+        else
+          '/ads'
     		end
       end
 end
