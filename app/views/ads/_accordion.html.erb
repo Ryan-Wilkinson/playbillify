@@ -33,7 +33,7 @@
                 <%if ad.event_id == event.id %>
                   <li class="list-group-item"><strong><%= ad.size %></strong> &middot; <%= number_to_currency(ad.price) %> &middot;
                   <%=  @ad_count = Ad.where(:advertiser_id => nil, :size => ad.size, :price => ad.price, :event_id => ad.event_id, :dimensions => ad.dimensions).size %> available
-                  <button class='view-details-button'><%= link_to 'View Details', ads_charge_path_url(ad.id) %></button>
+                  <button class='view-details-button'><%= link_to 'View Details', ads_new_charge_path(ad.id) %></button>
                   </li>
                 <%end -%>
               <%end -%>

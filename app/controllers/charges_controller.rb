@@ -3,12 +3,13 @@ class ChargesController < ApplicationController
     @ad = Ad.find(params[:id])
     @event = @ad.event
     @organization = @event.organization
-    @amount = @ad.price
+    @amount = @ad.price.to_i
   end
 
   def create
     # Amount in cents
-    amount = params[:stripeAmount].to_i * 100
+    ad = Ad.find(params[:id])
+    amount = ad.price.floor
 
     # Create the customer in Stripe
     customer = Stripe::Customer.create(
@@ -19,15 +20,28 @@ class ChargesController < ApplicationController
     # Create the charge using the customer data returned by Stripe API
     charge = Stripe::Charge.create(
       customer: customer.id,
-      amount: amount,
+      amount: amount * 100,
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
+    charge_error = nil
 
-    # place more code upon successfully creating the charge
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to charges_path
-    flash[:notice] = "Please try again"
+      if charge_error
+        flash[:error] = charge_error
+        redirect_to ads_new_charge_path(ad.id)
+      else
+        claim_ad(ad.id)
+        redirect_to ads_add_image_path(ad.id)
+      end
+    else
+      flash[:error] = 'one or more errors in your order'
+    end
+
+
+private
+
+  def claim_ad(id)
+    ad = Ad.find(id)
+    ad.update(advertiser_id: current_user.id)
   end
 end
