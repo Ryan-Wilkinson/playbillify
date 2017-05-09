@@ -38,6 +38,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk'
 gem "chartkick"
 gem 'groupdate'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -17,13 +17,6 @@ class AdsController < ApplicationController
     @user_email = current_user.email
   end
 
-  def purchase
-    @organization = Organization.find(params[:organization_id])
-    @event = Event.find(params[:event_id])
-    @ad = Ad.find(params[:id])
-    @advertiser_id = current_user.id
-  end
-
   def purchased_ads
     @user = current_user
     @ads = Ad.where(advertiser_id: @user.id).order('updated_at DESC')
