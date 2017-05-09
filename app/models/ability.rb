@@ -37,11 +37,12 @@ class Ability
         elsif user.advertiser?
           can :read, Organization
           can :read, Event
-          # can :purchase_ads
+          can :purchase, Ad, advertiser_id: nil
           can :update, Ad, advertiser_id: nil
-          can :read, Ad, advertiser_id: nil
           can :update, Ad, advertiser_id: user.id
-          can :read, Ad, advertiser_id: user.id
+          can :read, Ad, advertiser_id: nil
+          can :purchased_ads, Ad
+
         end
     end
 end

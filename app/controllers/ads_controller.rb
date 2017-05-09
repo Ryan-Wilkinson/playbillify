@@ -1,8 +1,8 @@
 class AdsController < ApplicationController
 
-  # load_and_authorize_resource :organization
-  # load_and_authorize_resource :event, :through => :organization
-  # load_and_authorize_resource :ad, :though => :event
+  load_and_authorize_resource :organization
+  load_and_authorize_resource :event, :through => :organization
+  load_and_authorize_resource :ad, :though => :event
 
   def index
     @organizations = Organization.all
@@ -25,11 +25,13 @@ class AdsController < ApplicationController
     @event = Event.find(params[:event_id])
     @ad = Ad.find(params[:id])
     @advertiser_id = current_user.id
+    authorize! :purchase, @ad
   end
 
   def purchased_ads
     @user = current_user
     @ads = Ad.where(advertiser_id: @user.id).order('updated_at DESC')
+    authorize! :purchased_ads, Ad
   end
 
   # GET /events/new
@@ -56,9 +58,13 @@ class AdsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @ad = Ad.find(params[:id])
-    @event = @ad.event
-    @organization = @ad.event.organization
+    if current_user.advertiser?
+      redirect_to '/'
+    else
+      @ad = Ad.find(params[:id])
+      @event = @ad.event
+      @organization = @ad.event.organization
+    end
   end
 
   def update
@@ -67,6 +73,7 @@ class AdsController < ApplicationController
     @organization = @ad.event.organization
     @ad.update(ad_params)
     redirect_after_ad_update
+
   end
 
   # DELETE /events/1
