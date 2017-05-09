@@ -1,9 +1,8 @@
 class AdsController < ApplicationController
 
-  load_and_authorize_resource :organization
-  load_and_authorize_resource :event, :through => :organization
-  load_and_authorize_resource :ad, :though => :event
-
+  # load_and_authorize_resource :organization
+  # load_and_authorize_resource :event, :through => :organization
+  # load_and_authorize_resource :ad, :though => :event
 
   def index
     @organizations = Organization.all
@@ -81,6 +80,7 @@ class AdsController < ApplicationController
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
+
     def ad_params
       params.require(:ad)
         .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions, :image)
