@@ -31,8 +31,9 @@ class Ability
         user ||= User.new # guest user (not logged in)
         if user.organization?
           can :manage, Organization, user_id: user.id
-          can :manage, Event, :event => { user_id: user.id }
-          can :create, Ad
+          can :manage, Event, :organization => { user_id: user.id }
+          can :manage, Ad, :event => { :organization => { user_id: user.id }}
+          can :manage, Ad, event_id: nil
         elsif user.advertiser?
           can :read, Organization
           can :read, Ad
@@ -40,6 +41,8 @@ class Ability
         end
     end
 end
+
+# can :read, Order, :company => { :users => { :id => user.id } }
 
 
 

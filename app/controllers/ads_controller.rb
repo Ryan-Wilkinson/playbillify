@@ -1,5 +1,9 @@
 class AdsController < ApplicationController
-  load_and_authorize_resource
+
+  load_and_authorize_resource :organization
+  load_and_authorize_resource :event, :through => :organization
+  load_and_authorize_resource :ad, :though => :event
+
 
   def index
     @organizations = Organization.all
