@@ -17,6 +17,8 @@
     <br>
     <%= ad.event.venue %>
     <br>
+    <%= image_tag ad.image.url(:square) %>
+    <br>
     <%= ad.size %>
     <br>
     <%= ad.dimensions %>
@@ -29,14 +31,15 @@
         You still need to upload your ad image!</div>
       <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
       <p>
-        <%= f.label :photo_url %><br>
-        <%= f.text_field :photo_url %>
+				<%= f.file_field :image %>
       </p>
         <%= f.submit %>
       <% end %>
     <% else %>
       <%= image_tag(ad.photo_url, size: 150) %><br>
     <% end %>
+  <%= image_tag ad.image.url(:thumb) %>
+
   <% end %>
   <br>
   <br>

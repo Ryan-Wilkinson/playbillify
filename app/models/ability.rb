@@ -31,12 +31,12 @@ class Ability
         user ||= User.new # guest user (not logged in)
         if user.organization?
           can :manage, Organization, user_id: user.id
-          can :manage, Event, user_id: user.id
-          can :create, Ad
+          can :manage, Event, :organization => { user_id: user.id }
+          can :create, Ad, :event => { organization_id:  user.organizations.ids }
         elsif user.advertiser?
           can :read, Organization
-          can :manage, Ad
-
+          can :read, Ad
+          can :update, Ad, user_id: user.id
         end
     end
 end

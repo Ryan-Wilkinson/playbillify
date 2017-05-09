@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+  load_and_authorize_resource
   # GET /events/new
   def new
   	@organization = Organization.find(params[:organization_id])
