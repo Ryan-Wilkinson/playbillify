@@ -18,7 +18,7 @@ Price: <%= number_to_currency(@ad.price) %>
 
  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= ENV["stripe_publishable_key"] %>"
-    data-description="Your payment description"
+    data-description="<%= @description %>"
     data-amount="<%= @amount * 100 %>">
   </script>
 <% end %>
