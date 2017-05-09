@@ -4,14 +4,15 @@
       <div class="row valign-wrapper">
         <div class="col s2">
           <%unless event.photo_url.nil? %>
-            <%= image_tag(event.photo_url, width: 100) %>
+            <%= image_tag(event.photo_url, width: 125) %>
           <%end %>
         </div>
         <div class="col s10">
           <h5><%= event.name %></h5><span class="black-text"></span>
           <div>
             <div class="black-text">Location: <%= event.venue %> | <%= event.city %>, <%= event.state %></div>
-            <div class="black-text">Performance Date(s): <%= event.date %></div>
+            <div class="black-text">Performance Date(s): <%= event.start_date.strftime("%b %d, %Y") %> <% if event.end_date %> - <%= event.end_date.strftime("%b %d, %Y") %> <% end %></div>
+            <div class="black-text">Estimated Attendance: <%= event.estimated_attendees %></div>
           </div>
         </div>
       </div>
@@ -26,7 +27,6 @@
           <div id="collapse<%= i %>" + index class="panel-collapse collapse">
             <div class="list-group-item list-group-item-info">
               <strong>Event Description: </strong><%= event.description %><br>
-              <strong>Estimated Attendance: </strong> <%= event.estimated_attendees %>
             </div>
             <ul class="list-group">
               <%@unique_ads.each do |ad| %>
@@ -44,6 +44,3 @@
     </div>
   </div>
 </div>
-
-
-
