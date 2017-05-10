@@ -1,26 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+  <h4 class="center"><%= @organization.name %></h4>
+  <%= @organization.city %>, <%= @organization.state %>
+  <p>this organization profile created <%= time_ago_in_words(@organization.created_at) %> ago</p>
 
-<h1><%= @organization.name %></h1>
-<%= @organization.city %>, <%= @organization.state %>
-<p>this organization profile created <%= time_ago_in_words(@organization.created_at) %> ago</p>
 
 
+  <br>
 
-<br>
+  <% @organization.events.each do |event| %>
+  	<br />
+  	<%= event.name %><br>
+  	<%= event.city %>,
+  	<%= event.state %>.
+  	<%= link_to "Show", organization_event_path(@organization, event) %>
+  <% end -%>
 
-<% @organization.events.each do |event| %>
-	<br />
-	<%= event.name %><br>
-	<%= event.city %>,
-	<%= event.state %>.
-	<%= link_to "Show", organization_event_path(@organization, event) %>
-<% end -%>
+  <br>
+  <br>
 
-<br>
-<br>
+  <%= link_to 'New Event', new_organization_event_path(@organization) %> |
 
-<%= link_to 'New Event', new_organization_event_path(@organization) %> |
-
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+  <%= link_to 'Edit', edit_organization_path(@organization) %> |
+  <%= link_to 'Back', organizations_path %>
+</div>

@@ -11,6 +11,7 @@
           <h5><%= event.name %></h5><span class="black-text"></span>
           <div>
             <div class="black-text">Location: <%= event.venue %> | <%= event.city %>, <%= event.state %></div>
+
             <div class="black-text">Performance Date(s): <%= event.start_date.strftime("%b %d, %Y") %> <% if event.end_date %> - <%= event.end_date.strftime("%b %d, %Y") %> <% end %></div>
             <div class="black-text">Estimated Attendance: <%= event.estimated_attendees %></div>
           </div>

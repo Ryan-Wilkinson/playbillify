@@ -1,33 +1,39 @@
-<%= form_for [@organization, @event] do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name, :required => true %>
+<div class='page-content'>
+  <div class="container white">
+		<%= form_for [@organization, @event] do |f| %>
 
-	<%= f.label :venue %>
-	<%= f.text_field :venue, :required => true %>
+			<%= f.label :name %>
+			<%= f.text_field :name, :required => true %>
 
-	<%= f.label :city %>
-	<%= f.text_field :city, :required => true %>
+			<%= f.label :venue %>
+			<%= f.text_field :venue, :required => true %>
 
-	<%= f.label :state %>
-	<%= f.text_field :state, :required => true %>
+			<%= f.label :city %>
+			<%= f.text_field :city, :required => true %>
 
-	<%= f.label :estimated_attendees %>
-	<%= f.text_field :estimated_attendees, :required => true %>
+			<%= f.label :state %>
+			<%= f.text_field :state, :required => true %>
 
-	<%= f.label :photo_url %>
-	<%= f.text_field :photo_url %>
+			<%= f.label :estimated_attendees %>
+			<%= f.text_field :estimated_attendees, :required => true %>
 
-	<%= f.label "Ad image deadline" %>
-	<%= f.date_field :deadline, :required => true %>
+			<%= f.label :photo_url %>
+			<%= f.text_field :photo_url %>
 
-	<%= f.label :description %>
-	<%= f.text_field :description %>
+			<%= f.label "Ad image deadline" %>
+			<%= f.date_field :deadline, :required => true %>
 
-	<%= f.label 'Event Start Date' %>
-	<%= f.date_field :start_date, :required => true %>
+			<%= f.label :description %>
+			<%= f.text_field :description %>
 
-	<%= f.label "Event End Date (optional)" %>
-	<%= f.date_field :end_date %>
+			<%= f.label 'Event Start Date' %>
+			<%= f.date_field :start_date, :required => true %>
 
-	<%= f.submit %>
-<% end -%>
+			<%= f.label "Event End Date (optional)" %>
+			<%= f.date_field :end_date %>
+
+
+			<%= f.submit :class => 'btn waves-effect waves-light'%>
+		<% end -%>
+	</div>
+</div>
