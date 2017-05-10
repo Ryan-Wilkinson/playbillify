@@ -46,7 +46,7 @@
     <h4 class="center">Purchased Ads</h4>
     <div class="ad-list">
       <%@event.ads.each do |ad| %>
-      <% if ad.advertiser_id %>
+      <% if ad.advertiser_id? %>
         <div class="ad-card">
           <div class="card">
             <div class="card-image">

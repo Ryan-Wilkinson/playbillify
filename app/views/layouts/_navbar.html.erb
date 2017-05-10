@@ -4,18 +4,19 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? && current_user.user_type == 'organization' %>
-            <li class='right'><%= link_to 'Home', root_path%></li>
-            <li class='right'><%= link_to 'Organizations', organizations_path %></li>
-            <li class='right'><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+
             <li class='right'><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
-              <% elsif user_signed_in? %>
-                <li class='right'><%= link_to 'Home', ads_index_path %></li>
-                <li class='right'><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
-                <li class='right'><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
-              <% else %>
-                <li><%= link_to 'Home', root_path %></li>
+            <li class='right'><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+            <li class='right'><%= link_to 'Organizations', organizations_path %></li>
+
+        <% elsif user_signed_in? %>
+            <li class='right'><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
+            <li class='right'><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+        <% else %>
+
             <li class='right'><%= link_to "Sign Up", new_user_registration_path %></li>
             <li class='right'><%= link_to "Log In", new_user_session_path %></li>
+
         <% end %>
         </ul id="nav-mobile" class="left hide-on-med-and-down">
       </div>
