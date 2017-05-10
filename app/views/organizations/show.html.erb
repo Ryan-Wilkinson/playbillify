@@ -5,8 +5,10 @@
     <%= @organization.city %>, <%= @organization.state %>
     <br>
     <i>this organization profile created <%= time_ago_in_words(@organization.created_at) %> ago</i>
-
-
+		
+		<% if @organization.logo.present? %>
+			<%= image_tag(@organization.logo, width: 150, :class => "event_image") %><br>
+		<% end -%>
 
     <br>
 
@@ -15,7 +17,7 @@
     	<%= event.name %><br>
     	<%= event.city %>,
     	<%= event.state %>.
-      <a href= '<%=event.photo_url%>' ></a>
+
 
     	<%= link_to "Show", organization_event_path(@organization, event) %>
     <% end -%>

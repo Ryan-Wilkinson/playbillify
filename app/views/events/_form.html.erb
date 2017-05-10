@@ -17,8 +17,8 @@
 			<%= f.label :estimated_attendees %>
 			<%= f.text_field :estimated_attendees, :required => true %>
 
-			<%= f.label :photo_url %>
-			<%= f.text_field :photo_url %>
+			<%= f.label :event_image %>
+			<%= f.file_field :event_image %><br>
 
 			<%= f.label "Ad image deadline" %>
 			<%= f.date_field :deadline, :required => true %>
