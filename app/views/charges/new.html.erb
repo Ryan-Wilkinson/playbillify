@@ -1,24 +1,26 @@
-<h1>Review Purchase</h1>
-<h3><%= @ad.event.name %> </h3>
-Organization: <%= @ad.event.organization.name %><br>
-Dimensions: <%= @ad.dimensions %>
-<br>
-Price: <%= number_to_currency(@ad.price) %>
+<div class="page-content">
+  <div class="container white">
+    <h4 class="center">Review Purchase</h4>
+    <h3><%= @ad.event.name %> </h3>
+    Organization: <%= @ad.event.organization.name %><br>
+    Dimensions: <%= @ad.dimensions %>
+    <br>
+    Price: <%= number_to_currency(@ad.price) %>
 
-<br>
-<br>
+    <br>
+    <br>
 
+    <%= form_tag ads_charges_path(@ad.id) do -%>
+     <article>
+         <%= label_tag 'amount', 'To Pay', class: 'amount' %>
+         <%= label_tag 'amount', "$#{@amount}", class: 'amount-figure' %>
+     </article>
 
-
-<%= form_tag ads_charges_path(@ad.id) do -%>
- <article>
-     <%= label_tag 'amount', 'To Pay', class: 'amount' %>
-     <%= label_tag 'amount', "$#{@amount}", class: 'amount-figure' %>
- </article>
-
- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= ENV["stripe_publishable_key"] %>"
-    data-description="<%= @description %>"
-    data-amount="<%= @amount * 100 %>">
-  </script>
-<% end %>
+     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= ENV["stripe_publishable_key"] %>"
+        data-description="<%= @description %>"
+        data-amount="<%= @amount * 100 %>">
+      </script>
+    <% end %>
+  </div>
+</div>
