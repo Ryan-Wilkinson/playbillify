@@ -1,21 +1,25 @@
-<%= form_for [@organization, @event, @ad] do |f|%>
-  <p>
-    <%= f.label :size %><br>
-    <%= f.text_field :size %>
-  </p>
-  <p>
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </p>
-  <p>
-    <%= f.label :dimensions %><br>
-    <%= f.text_field :dimensions %>
-  </p>
-  <p>
-  	<%= label_tag 'Count' %><br>
-  	<%= number_field_tag 'count', 1, min: 1, max: 10 %>
-  </p>
- 	<p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class='page-content'>
+  <div class="container white">
+    <%= form_for [@organization, @event, @ad] do |f|%>
+      <p>
+        <%= f.label :size %><br>
+        <%= f.text_field :size %>
+      </p>
+      <p>
+        <%= f.label :price %><br>
+        <%= f.number_field :price %>
+      </p>
+      <p>
+        <%= f.label :dimensions %><br>
+        <%= f.text_field :dimensions %>
+      </p>
+      <p>
+      	<%= label_tag 'Count' %><br>
+      	<%= number_field_tag 'count', 1, min: 1, max: 10 %>
+      </p>
+     	<p>
+        <%= f.submit :class => 'btn waves-effect waves-light'%>
+      </p>
+    <% end %>
+  </div>
+</div>

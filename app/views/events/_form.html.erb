@@ -1,33 +1,38 @@
-<%= form_for [@organization, @event] do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+<div class='page-content'>
+  <div class="container white">
+		<%= form_for [@organization, @event] do |f| %>
 
-	<%= f.label :venue %>
-	<%= f.text_field :venue %>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
 
-	<%= f.label :city %>
-	<%= f.text_field :city %>
+			<%= f.label :venue %>
+			<%= f.text_field :venue %>
 
-	<%= f.label :state %>
-	<%= f.text_field :state %>
+			<%= f.label :city %>
+			<%= f.text_field :city %>
 
-	<%= f.label :estimated_attendees %>
-	<%= f.text_field :estimated_attendees %>
+			<%= f.label :state %>
+			<%= f.text_field :state %>
 
-	<%= f.label :photo_url %>
-	<%= f.text_field :photo_url %>
+			<%= f.label :estimated_attendees %>
+			<%= f.text_field :estimated_attendees %>
 
-	<%= f.label :deadline %>
-	<%= f.date_field :deadline %>
+			<%= f.label :photo_url %>
+			<%= f.text_field :photo_url %>
 
-	<%= f.label :description %>
-	<%= f.text_field :description %>
+			<%= f.label :deadline %>
+			<%= f.date_field :deadline %>
 
-	<%= f.label :start_date %>
-	<%= f.date_field :start_date %>
+			<%= f.label :description %>
+			<%= f.text_field :description %>
 
-	<%= f.label :end_date %>
-	<%= f.date_field :end_date %>
+			<%= f.label :start_date %>
+			<%= f.date_field :start_date %>
 
-	<%= f.submit %>
-<% end -%>
+			<%= f.label :end_date %>
+			<%= f.date_field :end_date %>
+
+			<%= f.submit :class => 'btn waves-effect waves-light'%>
+		<% end -%>
+	</div>
+</div>
