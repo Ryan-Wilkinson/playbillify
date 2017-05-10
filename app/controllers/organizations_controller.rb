@@ -24,14 +24,7 @@ class OrganizationsController < ApplicationController
 
   # POST /organizations
   def create
-    @organization = Organization.create(
-      name: organization_params[:name],
-      city: organization_params[:city],
-      state: organization_params[:state],
-      photo_url: organization_params[:photo_url],
-      user_id: current_user.id,
-      description: organization_params[:description]
-      )
+    @organization = Organization.create(organization_params)
     redirect_to "/organizations/#{@organization.id}"
   end
 
@@ -53,7 +46,7 @@ class OrganizationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
       params.require(:organization)
-        .permit(:name, :city, :state, :photo_url, :description, :business_street1, :business_street2, :business_phone)
+        .permit(:name, :city, :state, :logo, :description, :business_street1, :business_street2, :business_phone)
         .merge(user_id: current_user.id)
     end
 end

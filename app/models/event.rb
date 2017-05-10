@@ -2,12 +2,10 @@ class Event < ApplicationRecord
   has_many :ads, dependent: :destroy
   belongs_to :organization
   delegate :user, :to => :organization
-  # validate :dates_cannot_be_in_the_past
 
-  # def dates_cannot_be_in_the_past
-  #   if start_date.present? && end_date < Date.today
-  #     errors.add(:start_date, "can't be in the past")
-  #   end
-  # end
+  has_attached_file :event_image, styles: { thumb: '100x100>', square: '200x200#', medium: '300x300>'}
+
+  # Validate the attached event_image is event_image/jpg, event_image/png, etc
+  validates_attachment_content_type :event_image, :content_type => /\Aimage\/.*\Z/
 end
 
