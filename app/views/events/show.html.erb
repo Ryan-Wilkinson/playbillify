@@ -61,19 +61,13 @@
               Dimensions: <%= ad.dimensions %><br>
               <strong>Price:</strong> $<%= ad.price %><br>
               <strong>Advertiser ID:</strong> <%= ad.advertiser_id %><br>
+              <% binding.pry %>
             </div>
             <div class="card-action">
               <% if ad.image_file_name %>
-                <a href=<%=ad.image_file_name%>><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+                <i class="fa fa-download" aria-hidden="true"></i>
+                <a href="<%= ad.image.url(:original, false) %>" download>Download</a>
               <% end %>
-            </div>
-            <div>
-            <%if ad.advertiser_id.nil? %>
-              <%= link_to "Edit", edit_organization_event_ad_path(ad.event.organization, ad.event, ad), class:'btn-flat' %>
-              <%= form_for ad, url: "/organizations/#{ad.event.organization.id}/events/#{ad.event.id}/ads/#{ad.id}" , method: "DELETE" do |f| %>
-                <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete this ad?"}, class:'btn-flat' %>
-                <%end %>
-              <%end -%>
             </div>
            </div>
           </div>

@@ -1,5 +1,5 @@
 class Ad < ApplicationRecord
-	belongs_to :advertiser, class_name: :user, optional: true
+	belongs_to :advertiser, class_name: :user, optional: true, :foreign_key => "advertiser_id"
 	belongs_to :event
 
 	# This method associates the attribute ":image" with a file attachment
