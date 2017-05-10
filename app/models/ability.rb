@@ -34,6 +34,7 @@ class Ability
           can :manage, Event, :organization => { user_id: user.id }
           can :manage, Ad, :event => { :organization => { user_id: user.id }}
           can :manage, Ad, event_id: nil
+          cannot :manage, Business
         elsif user.advertiser?
           can :manage, Business, user_id: user.id
           can :read, Organization
