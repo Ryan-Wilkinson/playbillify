@@ -56,7 +56,7 @@ class EventsController < ApplicationController
     def calculate_revenue(sold_ads)
       sold_ad_prices = []
       sold_ads.each do |ad|
-        sold_ad_prices.push(ad.price)
+      sold_ad_prices.push(ad.price)
       end
       @revenue = sold_ad_prices.reduce(0, :+)
     end
