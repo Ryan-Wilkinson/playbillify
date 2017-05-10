@@ -20,33 +20,19 @@
 //= require_self
 //= require_tree .
 
-// angular
-//   .module('playbillifyApp', ['ui.router'])
-//   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-//     $stateProvider
-//       .state('home', {
-//         url: '/',
-//         component: 'homePage'
-//       })
-//       .state('organizationsNew', {
-//       	url: '/organizations/new',
-//       	component: 'organizationsNew'
-//       })
-//       .state('organizationsShow', {
-//         url: '/organizations/:id',
-//         component: 'organizationsShow'
-//       })
-//       .state('eventsNew', {
-//         url: '/organizations/:id/events/new',
-//         component: 'eventsNew'
-//       });
+function searchAndHideEvents() {
+  var input = document.getElementById('searchTerm').value;
+  var eventCards = $('.event-card')
+  for (i=0; i < eventCards.length; i++) {
+    if (eventCards[i].innerHTML.includes(input)) {
+      console.log(input)
+    }
+    else {
+      $(eventCards[i]).hide()
+    }
+  }
+};
 
-//     // default fall back route
-//     $urlRouterProvider.otherwise('/');
-
-//     // enable HTML5 Mode for SEO
-//     $locationProvider.html5Mode({
-//       enabled: true,
-//       requireBase: false
-//     });
-//   });
+function refreshPage() {
+  location.reload();
+}

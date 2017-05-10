@@ -1,4 +1,5 @@
 class AdsController < ApplicationController
+  helper_method :keyword_search
 
   load_and_authorize_resource :organization
   load_and_authorize_resource :event, :through => :organization
@@ -13,6 +14,11 @@ class AdsController < ApplicationController
     end
     @events = Event.all
     @unique_ads = identical_ads.uniq{|ad| [ad.size, ad.price, ad.event_id, ad.dimensions]}
+  end
+
+  def keyword_search
+    @search = params[:search]
+    binding.pry
   end
 
   def add_image

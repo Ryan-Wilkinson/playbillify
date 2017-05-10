@@ -12,10 +12,11 @@
     <div class='col s2'>
       <div class="card-panel white lighten-5 z-depth-1">
         <div class="row">
-          <div>Search</div>
-          <input></input>
-          <div>Filter</div>
-          <input></input>
+          <% submit_tag "Search" %>
+          <input type="text" value='' id="searchTerm" placeholder="Search">
+          <button class='btn' onclick="searchAndHideEvents()">Search</button>
+          <br><br>
+          <button class='btn' onclick="refreshPage()">View All</button>
         </div>
       </div>
     </div>
