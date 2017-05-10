@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509225409) do
+ActiveRecord::Schema.define(version: 20170510175304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20170509225409) do
     t.string   "size"
     t.integer  "advertiser_id"
     t.integer  "event_id"
-    t.string   "photo_url"
     t.string   "dimensions"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -59,13 +58,16 @@ ActiveRecord::Schema.define(version: 20170509225409) do
     t.string   "state"
     t.integer  "organization_id"
     t.integer  "estimated_attendees"
-    t.string   "photo_url"
     t.date     "deadline"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.text     "description"
     t.date     "start_date"
     t.date     "end_date"
+    t.string   "event_image_file_name"
+    t.string   "event_image_content_type"
+    t.integer  "event_image_file_size"
+    t.datetime "event_image_updated_at"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -73,10 +75,13 @@ ActiveRecord::Schema.define(version: 20170509225409) do
     t.string   "city"
     t.string   "state"
     t.integer  "user_id"
-    t.string   "photo_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.text     "description"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "registrations", force: :cascade do |t|
