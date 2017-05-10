@@ -12,6 +12,7 @@
           </ul>
         </div>
       <% end %>
+<<<<<<< HEAD
 
     <%= form_for [@organization] do |f| %>
       <p>
@@ -48,5 +49,43 @@
     <% end %>
   </div>
 </div>
+=======
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for [@organization] do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :required => true %>
+  </p>
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :city, :required => true %>
+  </p>
+  <p>
+    <%= f.label :state %><br>
+    <%= f.text_field :state, :required => true %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :photo_url %><br>
+    <%= f.text_field :photo_url %>
+  </p>
+
+ <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', organizations_path %>
+
+
+<% end %>
+>>>>>>> master
 
 

@@ -1,57 +1,108 @@
-<div class='page-content'>
-  <div class="container white">
-    <h4 class="center"><%= @event.name %></h4>
-    <br><%= link_to	"Edit", edit_organization_event_path(@event.organization, @event) %>
 
-    <%= form_for @event, url: "/organizations/#{@event.organization.id}/events/#{@event.id}" , method: "DELETE" do |f| %>
-    <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete #{@event.name}?"} %>
-    <% end -%>
+<div class='dashboard-title'>
+  <h4 class="center"><%= @event.name %></h4>
+  <p>PLAYBILL SALES DASHBOARD</p>
+</div>
+<br>
 
-    <br>
-    <br>
-
-    Earned Revenue<br>
-    <%= number_to_currency(@revenue) %>
-    <br>
-    <br>
-
-    Ads Sold
-    <%= column_chart @sold_ads.group(:size).count %>
-
-    <%= (@event.deadline.to_date - DateTime.now.to_date).to_i %> days until deadline
-
-    <%= line_chart @sold_ads.group_by_day(:updated_at).count %>
-
-    <br>
-    <br>
-    <br>
-
-    <%= link_to "New Ad", new_organization_event_ad_path(@event.organization, @event) %>
-
-    <br>
-    <br>
-
-    <b>Ads: </b><br>
-    <% @event.ads.each do |ad| %>
-    	Size: <%= ad.size %><br>
-    	Price: $<%= ad.price %><br>
-    	Dimensions: <%= ad.dimensions %><br>
-      Fulfilled?:
-        <% if ad.advertiser_id.nil? %>
-          Not fulfilled
-          <% else %>
-          Fulfilled by advertiser ID <%= ad.advertiser_id %>
-        <% end %>
-      <%= link_to "Edit", edit_organization_event_ad_path(ad.event.organization, ad.event, ad) %><br>
-      <%= form_for ad, url: "/organizations/#{ad.event.organization.id}/events/#{ad.event.id}/ads/#{ad.id}" , method: "DELETE" do |f| %>
-      <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete this ad?"} %>
-      <% end -%>
-    	===============================
-    	<br>
-    <% end -%>
-  </div>
+<div class='edit-delete-buttons'>
+  <%= link_to "Post New Ad", new_organization_event_ad_path(@event.organization, @event), class:'btn' %>
+  <%= link_to	"Edit Event", edit_organization_event_path(@event.organization, @event), class:'btn-flat' %>
+  <%= form_for @event, url: "/organizations/#{@event.organization.id}/events/#{@event.id}" , method: "DELETE" do |f| %>
+    <%= f.submit "Delete Event", data: { confirm: "Are you sure you want to delete #{@event.name}?"}, class:'btn-flat' %>
+  <% end -%>
 </div>
 
+<% if @event.ads == [] %>
+  <div class='no-ads-notice'><span class='glyphicon glyphicon-exclamation-sign', style="font-size: 15px;"></span> No ad data to display. Post ads for your event to get started!</div>
+<% end %>
 
+  <div class='dashboard-stats card-panel'>
+    <div class='header-stats'>
+      <div class='chart-title'><%= number_to_currency(@revenue) %></div>
+      Revenue Earned to Date
+    </div>
+    <div class='header-stats'>
+      <div class='chart-title'>
+        <%= (@event.deadline.to_date - DateTime.now.to_date).to_i %>
+      </div>
+      Days Until Deadline
+    </div>
+  </div>
 
+  <div class='row chart-area'>
+    <div class='dashboard-chart card-panel'>
+      <h5>Types of Ads Sold</h5>
+      <%= column_chart @sold_ads.group(:size).count %>
+    </div>
 
+    <div class='dashboard-chart card-panel'>
+    <h5>Revenue By Day</h5>
+    <%= line_chart @sold_ad_prices.group_by_day(:updated_at).sum(:price) %>
+    </div>
+  </div>
+
+  <div class='ad-list-container'>
+    <h4 class="center">Purchased Ads</h4>
+    <div class="ad-list">
+      <%@event.ads.each do |ad| %>
+      <% if ad.advertiser_id %>
+        <div class="ad-card">
+          <div class="card">
+            <div class="card-image">
+              <% if ad.image_file_name.nil? %>
+                <%= image_tag('http://www.seagravevillagehall.co.uk/images/images/large/awaiting-image.png') %>
+              <% else %>
+                <%= image_tag(ad.image) %>
+              <% end %>
+            </div>
+            <div class="card-content">
+              <p class='ad-card-title'><%= ad.size %></p>
+              Dimensions: <%= ad.dimensions %><br>
+              <strong>Price:</strong> $<%= ad.price %><br>
+              <strong>Advertiser ID:</strong> <%= ad.advertiser_id %><br>
+            </div>
+            <div class="card-action">
+              <% if ad.image_file_name %>
+                <a href=<%=ad.image_file_name%>><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+              <% end %>
+            </div>
+            <div>
+            <%if ad.advertiser_id.nil? %>
+              <%= link_to "Edit", edit_organization_event_ad_path(ad.event.organization, ad.event, ad), class:'btn-flat' %>
+              <%= form_for ad, url: "/organizations/#{ad.event.organization.id}/events/#{ad.event.id}/ads/#{ad.id}" , method: "DELETE" do |f| %>
+                <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete this ad?"}, class:'btn-flat' %>
+                <%end %>
+              <%end -%>
+            </div>
+           </div>
+          </div>
+        <% end %>
+      <%end -%>
+    </div>
+  </div>
+
+  <div class='container'>
+    <h4 class="center">Available Ad Inventory</h4>
+    <br>
+    <div class='ad-inventory-section'>
+      <%@event.ads.each do |ad| %>
+        <%if ad.advertiser_id.nil? %>
+          <div class="card available-ad-card teal">
+            <div class="card-content">
+              <p class='ad-card-title'><%= ad.size %></p>
+              Dimensions: <%= ad.dimensions %><br>
+              <strong>Price:</strong> $<%= ad.price %><br>
+              <br>
+              <div class='edit-delete-buttons'>
+                <%= link_to "Edit", edit_organization_event_ad_path(ad.event.organization, ad.event, ad), class:'btn-flat' %>
+                <%= form_for ad, url: "/organizations/#{ad.event.organization.id}/events/#{ad.event.id}/ads/#{ad.id}" , method: "DELETE" do |f| %>
+                  <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete this ad?"}, class:'btn-flat' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>

@@ -10,6 +10,9 @@ nav ul {
   text-transform: uppercase;
 }
 
+.notifications {
+  clear: both;
+}
 
 .nav-wrapper {
   height: 500px;
@@ -155,6 +158,111 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   background:#454451;
 }
 
+.chart-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dashboard-chart {
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  width: 500px;
+  text-align:center;
+}
+
+.card-action {
+  text-align: center;
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 50px;
+}
+
+.dashboard-stats {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-top: 20px;
+  background: lightgray;
+}
+
+.header-stats {
+  width: 50%;
+  color: #2bbbad;
+}
+
+.edit-delete-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dashboard-title {
+  text-align: center;
+}
+
+.ads-list-area {
+  background: white;
+  height: 300px;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.ad-card {
+  max-width: 250px;
+  margin: 20px;
+}
+
+.ad-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ad-list-container {
+  padding: 40px;
+}
+
+
+.available-ad-card {
+  width: 250px;
+  margin: 10px;
+  color: white;
+}
+
+.ad-inventory-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.ad-card-title {
+  font-size: 20px;
+  color: #2C2B38;
+  padding: 10px;
+}
+
+.no-ads-notice {
+  text-align:center;
+  margin: 20px;
+  font-weight: bold;
+  color: gray;
+}
 
 @media only screen and (max-width: 601px){
     .computer-image {
