@@ -4,7 +4,7 @@
       <div class="row valign-wrapper">
         <div class="col s2">
           <%unless event.photo_url.nil? %>
-            <%= image_tag(event.photo_url, width: 125) %>
+            <%= image_tag(event.photo_url, height: 100, width:150) %>
           <%end %>
         </div>
         <div class="col s10">

@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   	@event = Event.find(params[:id])
     @all_ads = @event.ads
     @sold_ads = Ad.where(event: @event).where.not(advertiser_id: nil)
+    @sold_ad_prices = Ad.select(:price).where(event: @event).where.not(advertiser_id: nil)
     calculate_revenue(@sold_ads)
   end
 
@@ -20,7 +21,7 @@ class EventsController < ApplicationController
   def create
   	@event = Event.create(event_params)
   	@organization = @event.organization
-  	redirect_to "/organizations/#{@organization.id}"
+  	redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
 
   # GET /events/1/edit
