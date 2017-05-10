@@ -37,7 +37,7 @@
             <table>
               <tr>
               <p>I want to:</p>
-                <%= f.radio_button :user_type, "advertiser", :id=>"first", :style=>"display:none;" %>
+                <%= f.radio_button :user_type, "advertiser", :id=>"first", :style=>"display:none;", :checked => true%>
                 <label for="first">Buy playbill ads on behalf of a business</label>
                 <br><br>
                 <%= f.radio_button :user_type, "organization", :id=>"second", :style=>"display:none;" %>
