@@ -1,0 +1,44 @@
+<div class='page-content'>
+<h4 class="center">Your business information.</h4>
+<br>
+<div class="container white">
+<%= form_for [@business] do |f| %>
+  <div class="input-field col s12">
+    <%= f.label "Business Name" %><br>
+    <%= f.text_field :business_name, :required => true %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.label "Address 1" %><br>
+    <%= f.text_field :business_address1, :required => true %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.label "Address 2" %><br>
+    <%= f.text_field :business_address2 %>
+  </div>
+  <div class='row'>
+  <div class="input-field col s6">
+    <%= f.label :city %><br>
+    <%= f.text_field :business_city, :required => true %>
+  </div>
+  <div class="input-field col s6">
+    <%= f.label :state %><br>
+    <%= f.text_field :business_state, :required => true %>
+  </div>
+  </div>
+  <div class="input-field col s12">
+    <%= f.label "Zip code" %><br>
+    <%= f.text_field :business_zip, :required => true %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.label "Phone number" %><br>
+    <%= f.text_field :business_phone, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update Business Information", class:'btn waves-effect waves-light' %>
+  </div>
+  <br><br>
+<% end %>
+</div>
+</div>
+

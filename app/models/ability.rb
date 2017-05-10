@@ -35,6 +35,7 @@ class Ability
           can :manage, Ad, :event => { :organization => { user_id: user.id }}
           can :manage, Ad, event_id: nil
         elsif user.advertiser?
+          can :manage, Business, user_id: user.id
           can :read, Organization
           can :read, Event
           can :purchase, Ad, advertiser_id: nil
