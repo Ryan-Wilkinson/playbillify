@@ -1,43 +1,47 @@
-<h1>My Purchased Ads</h1>
-<div>
-  <%= @user.business.business_name %>
-  <br>
-  <%= @user.business.business_address1 %> <%= @user.business.business_address2 %>
-  <br>
-  <%= @user.business.business_city %>, <%= @user.business.business_state %> <%= @user.business.business_zip %>
-  <br>
-  <%= @user.business.business_phone %>
-</div>
-<br>
-<br>
-<% if @user.user_type == 'advertiser' %>
-  <div>
-   <% @ads.each do |ad| %>
-    <strong><%= ad.event.name %></strong>
+<h1 class="center">My Purchased Ads</h1>
+<div class='page-content'>
+  <div class="container white">
+    <div>
+      <%= @user.business.business_name %>
+      <br>
+      <%= @user.business.business_address1 %> <%= @user.business.business_address2 %>
+      <br>
+      <%= @user.business.business_city %>, <%= @user.business.business_state %> <%= @user.business.business_zip %>
+      <br>
+      <%= @user.business.business_phone %>
+    </div>
     <br>
-    <%= ad.event.venue %>
     <br>
-    <%= ad.size %>
-    <br>
-    <%= ad.dimensions %>
-    <br>
-    You paid <%= number_to_currency(ad.price) %>
-    <br>
-    <% if ad.image_file_name == "" || ad.image_file_name.nil? %>
-      <div class="alert alert-danger">
-        <span class="glyphicon glyphicon-exclamation-sign"></span>
-        You still need to upload your ad image!</div>
-      <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
-      <p>
-				<%= f.file_field :image %>
-      </p>
-        <%= f.submit %>
+    <% if @user.user_type == 'advertiser' %>
+      <div>
+       <% @ads.each do |ad| %>
+        <strong><%= ad.event.name %></strong>
+        <br>
+        <%= ad.event.venue %>
+        <br>
+        <%= ad.size %>
+        <br>
+        <%= ad.dimensions %>
+        <br>
+        You paid <%= number_to_currency(ad.price) %>
+        <br>
+        <% if ad.image_file_name == "" || ad.image_file_name.nil? %>
+          <div class="alert alert-danger">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+            You still need to upload your ad image!</div>
+          <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
+          <p>
+    				<%= f.file_field :image %>
+          </p>
+            <%= f.submit %>
+          <% end %>
+        <% else %>
+          <%= image_tag(ad.image, width: 200) %><br>
+        <% end %>
+               <br><br><br>
       <% end %>
-    <% else %>
-      <%= image_tag(ad.image, width: 200) %><br>
-    <% end %>
-           <br><br><br>
-  <% end %>
- <% end %>
+     <% end %>
+    </div>
+  </div>
 </div>
 
