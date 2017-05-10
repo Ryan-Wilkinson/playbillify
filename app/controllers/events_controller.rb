@@ -2,6 +2,11 @@ class EventsController < ApplicationController
   load_and_authorize_resource :organization
   load_and_authorize_resource :event, :through => :organization
 
+  def index
+    @user = current_user
+    @organizations = @user.organizations
+  end
+
   # GET /events/new
   def new
   	@organization = Organization.find(params[:organization_id])

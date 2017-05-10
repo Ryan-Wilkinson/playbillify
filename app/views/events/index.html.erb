@@ -1,0 +1,12 @@
+<h4 class="center">All of you events</h4>
+
+<div class='page-content'>
+  <div class="container white">
+    <% @organizations.each do |organization|%>
+      <h6><%= organization.name %>'s Events:</h6>
+      <% organization.events.each do |event| %>
+        <%= event.name %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
