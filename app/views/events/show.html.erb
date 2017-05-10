@@ -58,10 +58,13 @@
             </div>
             <div class="card-content">
               <p class='ad-card-title'><%= ad.size %></p>
-              Dimensions: <%= ad.dimensions %><br>
-              <strong>Price:</strong> $<%= ad.price %><br>
-              <strong>Advertiser ID:</strong> <%= ad.advertiser_id %><br>
-              <% binding.pry %>
+              <strong>Price:</strong> $<%= ad.price %> |
+              <%= ad.dimensions %><br><br>
+              <strong>Advertiser:</strong> <br>
+              <%= ad.advertiser.business.business_name %><br><br>
+              <strong>Contact:</strong> <br>
+              <%= ad.advertiser.first_name %> <%= ad.advertiser.last_name %><br>
+              <%= ad.advertiser.email %><br>
             </div>
             <div class="card-action">
               <% if ad.image_file_name %>
