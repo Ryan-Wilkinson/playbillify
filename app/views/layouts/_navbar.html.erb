@@ -9,6 +9,7 @@
             <li class='right'><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
             <li class='right'><%= link_to 'Organizations', organizations_path %></li>
 
+
         <% elsif user_signed_in? %>
             <li class='right'><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
             <li class='right'><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
