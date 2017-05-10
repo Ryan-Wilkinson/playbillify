@@ -12,7 +12,11 @@
     <tbody>
       <% @organizations.each do |organization| %>
         <tr>
-          <td><%= organization.name %>
+          <td><%= organization.name %>'s Events </td>
+          <% organization.events.each do |event| %>
+          <td><%= event.name %></td>
+          <td><%= link_to "more on #{event.name}", organization_event_path(organization, event) %></td>
+          <% end %>
           <td><%= link_to 'Show', organization %></td>
           <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
           <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,3 +29,4 @@
 
   <%= link_to 'New Organization', new_organization_path %>
 </div>
+

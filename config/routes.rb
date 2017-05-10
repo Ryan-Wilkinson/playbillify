@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/enter-business-details' => 'businesses#enter_business_details', as: "enter_business_details"
   get '/ads/:id/charges/new' => 'charges#new', as: "ads_new_charge"
   post '/ads/:id/charges/' => 'charges#create', as: "ads_charges"
-
+  get '/events' => 'events#index', as: "events_all"
   resources :businesses
   resources :charges
 
