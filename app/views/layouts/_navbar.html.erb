@@ -7,12 +7,14 @@
 
             <li class='right'><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
             <li class='right'><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
-            <li class='right'><%= link_to 'Organizations', organizations_path %></li>
+            <li class='right'><%= link_to 'Manage My Events', organizations_path %></li>
 
 
         <% elsif user_signed_in? %>
             <li class='right'><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
             <li class='right'><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+            <li class='right'><%= link_to 'My Purchases', ads_purchased_ads_path, target: '_self' %></li>
+            <li class='right'><%= link_to 'Browse Ads', ads_index_path, target: '_self' %></li>
         <% else %>
 
             <li class='right'><%= link_to "Sign Up", new_user_registration_path %></li>

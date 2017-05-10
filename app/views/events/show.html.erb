@@ -1,10 +1,9 @@
-
 <div class='dashboard-title'>
 <div class="event_image_container">
 	<% if @event.event_image.present? %>
 		<%= image_tag(@event.event_image, width: 150, :class => "event_image") %><br>
 	<% end -%>
-</div>	
+</div>
   <h4 class="center"><%= @event.name %></h4>
   <p>PLAYBILL SALES DASHBOARD</p>
 </div>

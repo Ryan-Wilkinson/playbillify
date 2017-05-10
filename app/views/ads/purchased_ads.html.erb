@@ -1,4 +1,4 @@
-<h1 class="center">My Purchased Ads</h1>
+<h4 class="center">My Purchased Ads</h4>
 <div class='page-content'>
   <div class="container white">
     <div>
@@ -33,7 +33,7 @@
           <p>
     				<%= f.file_field :image %>
           </p>
-            <%= f.submit %>
+            <%= f.submit "Add"%>
           <% end %>
         <% else %>
           <%= image_tag(ad.image, width: 200) %><br>
