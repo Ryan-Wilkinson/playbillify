@@ -18,16 +18,11 @@
 //= require jquery.maskedinput
 //= require_self
 //= require_tree .
-$(document).ready(function() {
 
-$('.seller-dropdown').on('change', function() {
-  var value = $(this).val();
-$('.seller-field').val(value);
-});
 
 function searchAndHideEvents() {
   var input = document.getElementById('searchTerm').value;
-  var eventCards = $('.event-card')
+  var eventCards = $('.event-card-selector')
   for (i=0; i < eventCards.length; i++) {
     if (eventCards[i].innerHTML.includes(input)) {
       console.log(input)
@@ -38,7 +33,6 @@ function searchAndHideEvents() {
   }
 };
 
-$('select').material_select();
 
 function refreshPage() {
   location.reload();
@@ -53,4 +47,11 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
+
+
+
+$('.seller-dropdown').on('change', function() {
+  var value = $(this).val();
+  $('.seller-field').val(value);
+});
 
