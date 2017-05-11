@@ -469,4 +469,21 @@ input[type="checkbox"]:checked ~ .reveal-if-sellers {
   margin: 0 auto;
 }
 
+.popup {
+  height: 60px;
+  width: 350px;
+  text-align: center;
+  vertical-align:middle;
+  background-color: #4db6ac;
+  color: white;
+  display: none;
+  padding-top: 8px;
+}
 
+.seller_info_icon {
+	color: #4db6ac;
+}
+
+.seller_hover {
+	padding-bottom: 10px;
+}
