@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Ryan-Wilkinson/playbillify#readme",
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-ui-router": "^1.0.0-rc.1"
+    "angular-ui-router": "^1.0.0-rc.1",
+    "animate.css": "^3.5.2"
   }
 }

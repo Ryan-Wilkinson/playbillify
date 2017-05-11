@@ -36,3 +36,15 @@ function searchAndHideEvents() {
 function refreshPage() {
   location.reload();
 }
+
+/* Open the sidenav */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "35%";
+}
+
+/* Close/hide the sidenav */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+Materialize.toast('I am a toast!', 4000, 'blue') // 4000 is the duration of the toast

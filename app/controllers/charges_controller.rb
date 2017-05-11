@@ -32,7 +32,6 @@ class ChargesController < ApplicationController
         redirect_to ads_new_charge_path(ad.id)
       else
         claim_ad(ad.id)
-        redirect_to ads_purchased_ads_path
       end
     else
       flash[:error] = 'one or more errors in your order'
@@ -42,7 +41,23 @@ class ChargesController < ApplicationController
 private
 
   def claim_ad(id)
-    ad = Ad.find(id)
-    ad.update(advertiser_id: current_user.id)
+    @ad = Ad.find(id)
+    @event = @ad.event.id
+    @organization = @ad.event.organization.id
+    @ad.update(advertiser_id: current_user.id)
+    redirect_after_ad_update
   end
+
+  def redirect_after_ad_update
+    if current_user.user_type == 'advertiser'
+      if @ad.image_file_name == nil
+        redirect_to ads_add_image_path(@ad)
+      else
+        redirect_to "/ads/purchased-ads"
+      end
+    else
+      redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
+    end
+  end
+
 end

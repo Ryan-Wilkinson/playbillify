@@ -1,17 +1,16 @@
-
 <div class='dashboard-title'>
 <div class="event_image_container">
 	<% if @event.event_image.present? %>
 		<%= image_tag(@event.event_image, width: 150, :class => "event_image") %><br>
 	<% end -%>
-</div>	
+</div>
   <h4 class="center"><%= @event.name %></h4>
   <p>PLAYBILL SALES DASHBOARD</p>
 </div>
 <br>
 
 <div class='edit-delete-buttons'>
-  <%= link_to "Post New Ad", new_organization_event_ad_path(@event.organization, @event), class:'btn' %>
+  <%= link_to "Post Available Ad", new_organization_event_ad_path(@event.organization, @event), class:'btn green' %>
   <%= link_to	"Edit Event", edit_organization_event_path(@event.organization, @event), class:'btn-flat' %>
   <%= form_for @event, url: "/organizations/#{@event.organization.id}/events/#{@event.id}" , method: "DELETE" do |f| %>
     <%= f.submit "Delete Event", data: { confirm: "Are you sure you want to delete #{@event.name}?"}, class:'btn-flat' %>
@@ -85,8 +84,11 @@
     </div>
   </div>
 
-  <div class='container'>
+  <div class='container available-ads'>
     <h4 class="center">Available Ad Inventory</h4>
+    <br>
+    <%= link_to "Post Available Ad", new_organization_event_ad_path(@event.organization, @event), class:'btn green' %>
+    <br>
     <br>
     <div class='ad-inventory-section'>
       <%@event.ads.each do |ad| %>
@@ -109,3 +111,6 @@
       <% end %>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
