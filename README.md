@@ -13,11 +13,11 @@ A simple to use application to connect arts organizations with local business's.
 
 ## Group-Members
 - Erin Martin
-	[Github](https://github.com/RushMyers) |
+	| [Github](https://github.com/RushMyers)
 - Rush Myers
-	[Github](https://github.com/deviea8) |
+	| [Github](https://github.com/deviea8)
 - Ryan Wilkinson
-	[Github](https://github.com/Ryan-Wilkinson) |
+	| [Github](https://github.com/Ryan-Wilkinson)
 
 ## Wireframes + ERD
 TBA
