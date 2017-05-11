@@ -242,9 +242,9 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 
 .event-card {
-  width: 500px;
+  width: 300px;
+  height: inherit;
   margin: 20px;
-  height: 350px;
   overflow: scroll;
 }
 
@@ -332,7 +332,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 
 .image-for-card {
-  width: 100%;
+	width: 200px;
   height: 220px;
 
  }
@@ -417,9 +417,18 @@ input[type="checkbox"]:checked ~ .reveal-if-sellers {
   margin: 0 auto;
 }
 
-.event-card-image {
-  max-height: 150px;
+.events_wrapper {
+	display: flex !important;
 }
+
+.event_show_container .innerContent {
+	display: flex;
+}
+
+.event_show_container {
+	padding-bottom: 20px;
+}
+
 
 .ad-summary {
   border: 2px solid #2C2B38;
@@ -433,6 +442,19 @@ input[type="checkbox"]:checked ~ .reveal-if-sellers {
   margin: 0 auto;
   text-align: center;
 }
+
+.fill {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden
+}
+
+.no_org_info {
+	justify-content: center;
+}
+
+
 
 .center-file-upload {
   margin: 0 auto;

@@ -19,7 +19,6 @@
 //= require_self
 //= require_tree .
 
-
 function searchAndHideEvents() {
   var input = document.getElementById('searchTerm').value;
   var eventCards = $('.event-card-selector')
