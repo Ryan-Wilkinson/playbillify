@@ -18,12 +18,11 @@ class AdsController < ApplicationController
 
   def keyword_search
     @search = params[:search]
-    binding.pry
   end
 
   def add_image
     @ad = Ad.find(params[:id])
-    @user_email = current_user.email
+    authorize! :add_image, Ad
   end
 
   def purchase
@@ -79,7 +78,6 @@ class AdsController < ApplicationController
     @organization = @ad.event.organization
     @ad.update(ad_params)
     redirect_after_ad_update
-
   end
 
   # DELETE /events/1
@@ -99,9 +97,10 @@ class AdsController < ApplicationController
         .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions, :image)
         .merge(event_id: params[:event_id])
     end
+
     def redirect_after_ad_update
       if current_user.user_type == 'advertiser'
-        if @ad.image == nil || @ad.image == ""
+        if @ad.image_file_name == nil
           redirect_to "/ads/#{@ad.id}/add-image"
         else
           redirect_to "/ads/purchased-ads"
@@ -110,6 +109,8 @@ class AdsController < ApplicationController
         redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
       end
     end
+
+
 end
 
 

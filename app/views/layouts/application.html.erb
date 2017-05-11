@@ -27,9 +27,6 @@
   <!-- Page content -->
   <%= yield  %>
 
-  <body onload= Materialize.toast(<%= notice %>, 4000)>
-  <body onload= Materialize.toast(<%= alert %>, 4000)>
-
   <% unless current_page?(root_path) %>
     <%= render 'layouts/footer' %>
   <% end %>
