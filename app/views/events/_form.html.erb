@@ -12,7 +12,7 @@
 			<%= f.text_field :city, :required => true %>
 
 			<%= f.label :state %>
-			<%= f.text_field :state, :required => true %>
+			<%= f.select(:state, options_for_select(us_states, "GA"), :required => true) %> 
 
 			<%= f.label :estimated_attendees %>
 			<%= f.text_field :estimated_attendees, :required => true %>

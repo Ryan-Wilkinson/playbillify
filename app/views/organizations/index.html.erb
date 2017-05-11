@@ -32,19 +32,17 @@
 
 
                 </div>
+
             </div>
-            <% end %>
-
         </div>
-
-
-
-      <% else %>
-        <i>No events exist for this organization</i>
-        <br>
-      <% end %>
-    <%= link_to "edit #{organization.name}", organization, :class => "waves-effect waves-light btn little-button" %>
-      <%= link_to 'New Event', new_organization_event_path(organization), :class => "waves-effect waves-light btn little-button" %>
+            <% end %>
+    </div>
+    <% else %>
+      <i>No events exist for this organization</i>
+      <br>
+    <% end %>
+    <%= link_to "more on #{organization.name}", organization, :class => "waves-effect waves-light btn little-button" %>
+    <%= link_to 'New Event', new_organization_event_path(organization), :class => "waves-effect waves-light btn little-button" %>
     <% end %>
     </div>
 </div>

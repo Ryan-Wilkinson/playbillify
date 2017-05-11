@@ -22,7 +22,7 @@
   </div>
   <div class="input-field col s6">
     <%= f.label :state %><br>
-    <%= f.text_field :business_state, :required => true %>
+   	<%= f.select(:business_state, options_for_select(us_states, "GA"), :required => true) %> 
   </div>
   </div>
   <div class="input-field col s12">

@@ -15,21 +15,20 @@
 
     <%= f.label :name %><br>
     <%= f.text_field :name, :required => true %>
-  </p>
   <p>
     <%= f.label :city %><br>
     <%= f.text_field :city, :required => true %>
   </p>
   <p>
     <%= f.label :state %><br>
-    <%= f.text_field :state, :required => true %>
+		<%= f.select(:state, options_for_select(us_states, "GA"), :required => true) %> 
   </p>
   <p>
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </p>
   <p>
-    <%= f.label 'Organization Logo' %><br>
+    <%= f.label 'Organization Logo'%><br>
     <%= f.file_field :logo %>
   </p>
   <br>
@@ -40,5 +39,8 @@
 <% end %>
 
 <br>
-<%= link_to 'Back', organizations_path %>
+
+<%= link_to 'Back', organizations_path, :class => 'btn waves-effect waves-light'%>
+<br>
+<br>
 </div>
