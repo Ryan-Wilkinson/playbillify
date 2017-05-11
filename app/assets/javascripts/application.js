@@ -20,18 +20,17 @@
 //= require_tree .
 
 function searchAndHideEvents() {
-  var input = document.getElementById('searchTerm').value;
+  var input = document.getElementById('searchTerm').value.toLowerCase();
+  console.log(input);
   var eventCards = $('.event-card-selector')
   for (i=0; i < eventCards.length; i++) {
-    if (eventCards[i].innerHTML.includes(input)) {
-      console.log(input)
+    if (eventCards[i].innerHTML.toLowerCase().includes(input)) {
     }
     else {
       $(eventCards[i]).hide()
     }
   }
 };
-
 
 function refreshPage() {
   location.reload();
