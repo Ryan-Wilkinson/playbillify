@@ -1,26 +1,26 @@
-angular
-  .module('playbillifyApp')
-  .service('OrganizationsService', OrganizationsService);
+// angular
+//   .module('playbillifyApp')
+//   .service('OrganizationsService', OrganizationsService);
 
-OrganizationsService.$inject = ['$http', '$stateParams'];
+// OrganizationsService.$inject = ['$http', '$stateParams'];
 
-function OrganizationsService($http, $stateParams) {
-  const self = this;
+// function OrganizationsService($http, $stateParams) {
+//   const self = this;
 
-  self.loadOrgDetails = loadOrgDetails;
-  self.addOrganization = addOrganization;
+//   self.loadOrgDetails = loadOrgDetails;
+//   self.addOrganization = addOrganization;
 
 
-  function loadOrgDetails() {
-    var orgId = $stateParams.id;
-    console.log('loadThisUsersOrgs function fired')
-    return $http
-      .get('/api/organizations/' + orgId)
-  };
+//   function loadOrgDetails() {
+//     var orgId = $stateParams.id;
+//     console.log('loadThisUsersOrgs function fired')
+//     return $http
+//       .get('/api/organizations/' + orgId)
+//   };
 
-  function addOrganization(newOrg) {
-  	return $http
-  	.post('/api/organizations', newOrg)
-  }
+//   function addOrganization(newOrg) {
+//   	return $http
+//   	.post('/api/organizations', newOrg)
+//   }
 
-}
+// }

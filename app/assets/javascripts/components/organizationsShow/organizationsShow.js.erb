@@ -1,27 +1,27 @@
-angular
-  .module('playbillifyApp')
-  .component('organizationsShow', {
-    templateUrl: '<%= asset_path("components/organizationsShow/organizationsShow") %>',
-    controller: OrganizationShowController
-  });
+// angular
+//   .module('playbillifyApp')
+//   .component('organizationsShow', {
+//     templateUrl: '<%= asset_path("components/organizationsShow/organizationsShow") %>',
+//     controller: OrganizationShowController
+//   });
 
-OrganizationShowController.$inject = ['OrganizationsService'];
+// OrganizationShowController.$inject = ['OrganizationsService'];
 
-function OrganizationShowController(OrganizationsService) {
-  const vm = this;
-  vm.orgDetails = {};
-  activate();
+// function OrganizationShowController(OrganizationsService) {
+//   const vm = this;
+//   vm.orgDetails = {};
+//   activate();
 
-  function activate() {
-    getOrgDetails();
-  };
+//   function activate() {
+//     getOrgDetails();
+//   };
 
-  function getOrgDetails() {
-    OrganizationsService
-    .loadOrgDetails()
-    .then(function showOrgs(response) {
-      vm.orgDetails = response.data
-      console.log(response.data)
-    })
-  }
- }
+//   function getOrgDetails() {
+//     OrganizationsService
+//     .loadOrgDetails()
+//     .then(function showOrgs(response) {
+//       vm.orgDetails = response.data
+//       console.log(response.data)
+//     })
+//   }
+//  }

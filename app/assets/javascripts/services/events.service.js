@@ -1,19 +1,19 @@
-angular
-  .module('playbillifyApp')
-  .service('EventsService', EventsService);
+// angular
+//   .module('playbillifyApp')
+//   .service('EventsService', EventsService);
 
-EventsService.$inject = ['$http', '$stateParams'];
+// EventsService.$inject = ['$http', '$stateParams'];
 
-function EventsService($http, $stateParams) {
-  const self = this;
+// function EventsService($http, $stateParams) {
+//   const self = this;
 
-  self.addEvent = addEvent;
+//   self.addEvent = addEvent;
 
-  function addEvent(newEvent) {
-    console.log(newEvent)
-    var orgId = $stateParams.id;
-    return $http
-    .post('/api/organizations/' + orgId + '/events', newEvent);
-  }
+//   function addEvent(newEvent) {
+//     console.log(newEvent)
+//     var orgId = $stateParams.id;
+//     return $http
+//     .post('/api/organizations/' + orgId + '/events', newEvent);
+//   }
 
-}
+// }
