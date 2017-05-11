@@ -3,7 +3,6 @@
   <div class="container">
     <h4 class="center"> Your Organizations </h4>
 
-
   <% @organizations.each do |organization| %>
     <h5><%=organization.name%>,  <%= organization.city %> 's</h5>
 
@@ -11,39 +10,31 @@
     <div class="row">
       <% if organization.events.any? %>
         <% organization.events.each do |event| %>
-              <div class="card col s12 m3 ad-card">
-
-                <div class="card-image">
-                  <%= image_tag(event.event_image, :class => "image-for-card") %>
-                  <span class="card-title"><%=event.name %></span>
-                </div>
-                <div class="card-content">
-                    <strong>Where: <%= event.venue %></strong>
-                    <br>
-                    <strong>When: <%= event.start_date %></strong>
-                    <% if  event.end_date?  %>
-                    Through: <%= event.end_date %>
-
-                    <% end %>
-                </div>
-                <div class="card-action">
-                  <%= link_to 'more', organization_event_path(organization, event), :class => "waves-effect waves-light btn little-button"  %>
-
-
-                </div>
+          <div class="card col s12 m3 ad-card">
+            <div class="card-image">
+              <%= image_tag(event.event_image, :class => "image-for-card") %>
+              <span class="card-title"><%=event.name %></span>
             </div>
-            <% end %>
-
+            <div class="card-content">
+                <strong>Where: <%= event.venue %></strong>
+                <br>
+                <strong>When: <%= event.start_date %></strong>
+                <% if  event.end_date?  %>
+                Through: <%= event.end_date %>
+                <% end %>
+            </div>
+            <div class="card-action">
+              <%= link_to 'more', organization_event_path(organization, event), :class => "waves-effect waves-light btn little-button"  %>
+            </div>
         </div>
-
-
-
-      <% else %>
-        <i>No events exist for this organization</i>
-        <br>
-      <% end %>
-    <%= link_to "edit #{organization.name}", organization, :class => "waves-effect waves-light btn little-button" %>
-      <%= link_to 'New Event', new_organization_event_path(organization), :class => "waves-effect waves-light btn little-button" %>
+            <% end %>
+    </div>
+    <% else %>
+      <i>No events exist for this organization</i>
+      <br>
+    <% end %>
+    <%= link_to "more on #{organization.name}", organization, :class => "waves-effect waves-light btn little-button" %>
+    <%= link_to 'New Event', new_organization_event_path(organization), :class => "waves-effect waves-light btn little-button" %>
     <% end %>
   </div>
 </div>
