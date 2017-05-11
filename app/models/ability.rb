@@ -43,7 +43,8 @@ class Ability
           can :update, Ad, advertiser_id: nil
           can :update, Ad, advertiser_id: user.id
           can :read, Ad, advertiser_id: nil
-          can :purchased_ads, Ad
+          can :purchased_ads, Ad, advertiser_id: user.id
+          can :add_image, Ad, advertiser_id: user.id
 
         end
     end

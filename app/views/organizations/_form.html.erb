@@ -29,15 +29,16 @@
     <%= f.text_area :description %>
   </p>
   <p>
-    <%= f.label :logo %><br>
+    <%= f.label 'Organization Logo' %><br>
     <%= f.file_field :logo %>
   </p>
+  <br>
 
  <p>
-    <%= f.submit %>
+    <%= f.submit :class => 'btn waves-effect waves-light' %>
   </p>
 <% end %>
 
-
+<br>
 <%= link_to 'Back', organizations_path %>
 

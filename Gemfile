@@ -39,6 +39,7 @@ gem 'aws-sdk'
 gem "chartkick"
 gem 'groupdate'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'gibbon'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

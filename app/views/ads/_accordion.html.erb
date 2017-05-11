@@ -8,7 +8,8 @@
           <%end %>
         </div>
         <div class="col s10">
-          <h5><%= event.name %></h5><span class="black-text"></span>
+          <a data-toggle="collapse" href="#collapse<%= i %>">
+          <h5><%= event.name %></h5><span class="black-text"></span></a>
           <div>
             <div class="black-text">Location: <%= event.venue %> | <%= event.city %>, <%= event.state %></div>
             <div class="black-text">Performance Date(s): <%= event.start_date.strftime("%b %d, %Y") %> <% if event.end_date %> - <%= event.end_date.strftime("%b %d, %Y") %> <% end %></div>

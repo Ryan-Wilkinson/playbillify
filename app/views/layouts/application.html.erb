@@ -5,6 +5,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
   <title>Playbillify</title>
   <%= csrf_meta_tags %>
@@ -16,15 +17,19 @@
 
 <!-- Displays fixed navbar only on homepage -->
   <%if current_page?(root_path) %>
-    <%= render 'layouts/fixed_navbar' %>
+    <div class='navbar-fixed'>
+      <%= render 'layouts/navbar' %>
+    </div>
   <%else %>
     <%= render 'layouts/navbar' %>
   <%end %>
 
   <!-- Page content -->
-  <%= yield %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= yield  %>
+
+  <% unless current_page?(root_path) %>
+    <%= render 'layouts/footer' %>
+  <% end %>
   <script src="chartkick.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js">
   </script>
