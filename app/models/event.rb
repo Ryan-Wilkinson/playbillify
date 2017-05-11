@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   has_many :ads, dependent: :destroy
-  belongs_to :organization
+  belongs_to :organization, dependent: :destroy
   delegate :user, :to => :organization
 
   has_attached_file :event_image, styles: { thumb: '100x100>', square: '200x200#', medium: '300x300>'}

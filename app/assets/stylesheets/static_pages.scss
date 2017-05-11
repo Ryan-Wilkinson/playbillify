@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
@@ -116,12 +117,11 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   color: #b8dfb8;
 }
 
-.footer {
-  bottom: 0;
-}
 
 .page-footer {
   background: #2C2B38;
+  color: white;
+  text-align:center;
 }
 
 .tab-partial {
@@ -265,6 +265,13 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   margin: 20px;
   font-weight: bold;
   color: gray;
+}
+
+#toast-container {
+  bottom: auto !important;
+  left: auto !important;
+  top: 20%;
+  right:5%;
 }
 
 @media only screen and (max-width: 601px){
