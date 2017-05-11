@@ -28,7 +28,7 @@
         <% if ad.image_file_name == "" || ad.image_file_name.nil? %>
           <div class="alert alert-danger">
             <span class="glyphicon glyphicon-exclamation-sign"></span>
-            You still need to upload your ad image!</div>
+            Make sure to upload your ad image before <%= ad.event.deadline.strftime("%B %d, %Y") %>!</div>
           <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
           <p>
     				<%= f.file_field :image %>
