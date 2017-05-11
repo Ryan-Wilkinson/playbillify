@@ -19,37 +19,38 @@
 //= require_self
 //= require_tree .
 
-$(document).ready(function() {
-	$('.seller-dropdown').on('change', function() {
-	  var value = $(this).val();
-	$('.seller-field').val(value);
-	});
+function searchAndHideEvents() {
+  var input = document.getElementById('searchTerm').value;
+  var eventCards = $('.event-card-selector')
+  for (i=0; i < eventCards.length; i++) {
+    if (eventCards[i].innerHTML.includes(input)) {
+      console.log(input)
+    }
+    else {
+      $(eventCards[i]).hide()
+    }
+  }
+};
 
-	function searchAndHideEvents() {
-	  var input = document.getElementById('searchTerm').value;
-	  var eventCards = $('.event-card')
-	  for (i=0; i < eventCards.length; i++) {
-	    if (eventCards[i].innerHTML.includes(input)) {
-	      console.log(input)
-	    }
-	    else {
-	      $(eventCards[i]).hide()
-	    }
-	  }
-	};
 
-	function refreshPage() {
-	  location.reload();
-	}
+function refreshPage() {
+  location.reload();
+}
 
-	/* Open the sidenav */
-	function openNav() {
-	    document.getElementById("mySidenav").style.width = "35%";
-	}
+/* Open the sidenav */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "35%";
+}
 
-	/* Close/hide the sidenav */
-	function closeNav() {
-	    document.getElementById("mySidenav").style.width = "0";
-	}
+/* Close/hide the sidenav */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+
+
+$('.seller-dropdown').on('change', function() {
+  var value = $(this).val();
+  $('.seller-field').val(value);
 });
 

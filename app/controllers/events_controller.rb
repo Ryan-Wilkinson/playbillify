@@ -27,7 +27,6 @@ class EventsController < ApplicationController
   def create
     sellers_list = event_params[:sellers].split("\r\n")
     org_id = params[:organization_id]
-    binding.pry
   	@event = Event.create(
       :name => event_params[:name],
       :city => event_params[:city],
