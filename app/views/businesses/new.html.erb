@@ -31,7 +31,7 @@
   </div>
   <div class="input-field col s12">
     <%= f.label "Phone number" %><br>
-    <%= f.text_field :business_phone, :required => true %>
+    <%= f.text_field(:business_phone, data: { mask: '(999) 999-9999' }, :required => true, :id => "phone") %>
   </div>
 
   <div class="actions">
@@ -41,3 +41,9 @@
 <% end %>
 </div>
 </div>
+
+<script>
+	jQuery(function($){
+	   $("#phone").mask("(999) 999-9999",{placeholder:" "});
+	});
+</script>
