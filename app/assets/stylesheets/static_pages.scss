@@ -273,17 +273,27 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     }
 }
 
-.event_image_container {
-	padding-top: 15px;
-}
-
 .event_image {
 	border-radius: 50%;
 	height: 150px;
 }
 
-.image_card_image {
-	height: 270px;
+.event_image_container {
+	padding-top: 15px;
+}
+
+.org_image {
+	border-radius: 10%;
+	height: 200px;
+}
+
+.org_container {
+	padding: 20px;
+}
+
+.org_attributes {
+	font-size: 1.2em;
+	font-weight: bold;
 }
 
 

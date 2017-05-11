@@ -1,43 +1,23 @@
 <p id="notice"><%= notice %></p>
-<div class='dashboard-title'>
-	<% if @organization.logo.present? %>
-		<%= image_tag(@organization.logo, width: 150, :class => "event_image") %><br>
-	<% end -%>
-  <h4 class="center"><%= @organization.name %></h4>
-  <%= @organization.city %>, <%= @organization.state %>
-  <br>
+<div class="page-content">
+	<div class="container white org_container">
+		<div class='dashboard-title'>
+			<% if @organization.logo.present? %>
+				<%= image_tag(@organization.logo, width: 250, :class => "org_image") %><br>
+			<% end -%>
+	  <h4><%= @organization.name %></h4>
+		<span class="org_attributes">Joined: </span><%= @organization.created_at.strftime ("%B %d, %Y") %>
+		<br>
+	  <span class="org_attributes">Located in: </span><%= @organization.city %>, <%= @organization.state %>
+	  <br>
+		<span class="org_attributes">About <%= @organization.name %>: </span><p><%= @organization.description %></p>
+		<br>
+		<br>
 
-  <%= link_to 'New Event', new_organization_event_path(@organization) %> |
+	  <%= link_to 'New Event', new_organization_event_path(@organization), class:'btn' %><br><br>
+	  <%= link_to 'Edit Organization', edit_organization_path(@organization), class:'btn-flat' %> |
+		<%= link_to 'Delete Organization', @organization, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn-flat' %>
 
-  <%= link_to 'Edit', edit_organization_path(@organization) %>
-
-  <br>
-
-  <h5>Events: </h5>
-
-	<% @organization.events.each do |event| %>
-	  <div class="row">
-	    <div class="col s12 m3">
-	      <div class="card">
-	        <div class="card-image">
-	        	<% if event.event_image.present? %>
-							<%= image_tag(event.event_image, width: 200, :class => "image_card_image") %>
-						<% else %> 
-							<img src="http://www.gameiva.com/images/no_image_available_300x300.jpg" class="image_card_image">
-	        	<% end -%>
-	          <span class="card-title"><%= event.name %></span>
-	        </div>
-	        <div class="card-content">
-	          <p><%= event.description %></p>
-	        </div>
-	        <div class="card-action">
-	          <%= link_to "View Event", organization_event_path(@organization, event) %>
-	        </div>
-	      </div>
-	    </div>
 	  </div>
-  <% end -%>
+	</div>
 </div>
-
-
-
