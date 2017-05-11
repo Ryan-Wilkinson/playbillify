@@ -20,6 +20,7 @@
 <h5 class='center add-image-upload-headline'>Did someone assist you with this purchase?</h5>
   <p class='center'>Let us know by selecting their name from the dropdown below.</p>
 
+ <%= f.text_field :seller, class: 'seller-field' %><br />
   <!-- Dropdown select for seller -->
     <div class="input-field col s12">
       <select class="browser-default seller-dropdown">
@@ -31,7 +32,6 @@
     </div>
 <% end %>
 
-  <%= f.hidden_field :seller, class: 'seller-field' %><br />
   </p>
 <%= f.submit "Submit Image", :class => 'btn' %>
 <% end %>
