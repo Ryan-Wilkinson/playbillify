@@ -1,19 +1,26 @@
-<div class='container white'>
+<div class='container white center'>
 <h4 class='center'>Success!</h4>
 
 <%= form_for [@ad.event.organization, @ad.event, @ad] do |f| %>
-  <p>Thanks for your purchase. Now, upload the image you'd like to use for this ad.</p>
-  <%= f.label :photo_url %><br>
-	<%= f.file_field :image %><br>
-  <%= f.hidden_field :seller, class: 'seller-field' %><br />
-  </p>
-<%= f.submit %>
-<% end %>
-
+  <p class="center">Thanks for your purchase. Your payment has been processed for this ad: </p>
+  <div class='ad-summary'>
+<p class='center'><%= @ad.event.name %> at <%= @ad.event.organization.name %><br>
+<%= @ad.size %> Ad for <%= number_to_currency(@ad.price) %></p>
+</div>
+<br>
+  <h5 class='center add-image-upload-headline'>Upload your ad image</h5>
+  <p class='center container'>Upload the image you'd like to use for this ad. You have until <%=@ad.event.deadline.strftime("%A, %B %d, %Y") %> to upload it, so don't worry if you don't have an image right now.</p>
+<br>
+  <div class='upload-section'>
+	<%= f.file_field :image, class:'center-file-upload' %><br>
+</div>
 
 <% unless @sellers.nil? %>
+<br>
+<h5 class='center add-image-upload-headline'>Did someone assist you with this purchase?</h5>
+  <p class='center'>Let us know by selecting their name from the dropdown below.</p>
+
   <!-- Dropdown select for seller -->
-  Who helped you?
     <div class="input-field col s12">
       <select class="browser-default seller-dropdown">
         <option value="" disabled selected>Referrer name</option>
@@ -24,10 +31,11 @@
     </div>
 <% end %>
 
-<h4>Image not ready quite yet?</h4>
-<p>If you still need to create your image, you can upload it at any time between now and <%=@ad.event.deadline.strftime("%A, %B %d, %Y") %>. </p>
-
-
+  <%= f.hidden_field :seller, class: 'seller-field' %><br />
+  </p>
+<%= f.submit "Submit Image", :class => 'btn' %>
+<% end %>
+<br>
 <%= link_to 'View All Purchased Ads', ads_purchased_ads_path, class:'btn'%>
 <br>
 <br>
