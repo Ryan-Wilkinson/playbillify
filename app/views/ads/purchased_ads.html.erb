@@ -2,13 +2,15 @@
 <div class='page-content'>
   <div class="container white">
     <div>
-      <%= @user.business.business_name %>
-      <br>
-      <%= @user.business.business_address1 %> <%= @user.business.business_address2 %>
-      <br>
-      <%= @user.business.business_city %>, <%= @user.business.business_state %> <%= @user.business.business_zip %>
-      <br>
-      <%= @user.business.business_phone %>
+    	<% if @user.business.present? %>
+	      <%= @user.business.business_name %>
+	      <br>
+	      <%= @user.business.business_address1 %> <%= @user.business.business_address2 %>
+	      <br>
+	      <%= @user.business.business_city %>, <%= @user.business.business_state %> <%= @user.business.business_zip %>
+	      <br>
+	      <%= @user.business.business_phone %>
+	   <% end -%>
     </div>
     <br>
     <br>
@@ -25,7 +27,7 @@
         <br>
         You paid <%= number_to_currency(ad.price) %>
         <br>
-        <% if ad.image_file_name == "" || ad.image_file_name.nil? %>
+        <% if ad.image_file_name == "" or ad.image_file_name.nil? %>
           <div class="alert alert-danger">
             <span class="glyphicon glyphicon-exclamation-sign"></span>
             Make sure to upload your ad image before <%= ad.event.deadline.strftime("%B %d, %Y") %>!</div>
@@ -37,10 +39,16 @@
           <% end %>
         <% else %>
           <%= image_tag(ad.image, width: 200) %><br>
+          <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
+          	<p>
+    					<%= f.file_field :image %>
+          	</p>
+            	<%= f.submit %>
         <% end %>
                <br><br><br>
       <% end %>
      <% end %>
+     <% end -%>
     </div>
   </div>
 </div>

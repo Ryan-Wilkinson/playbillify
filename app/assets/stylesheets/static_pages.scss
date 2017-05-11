@@ -1,6 +1,6 @@
-// Place all the styles related to the StaticPages controller here.
+/*// Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
 body {
@@ -285,13 +285,27 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     }
 }
 
+.event_image {
+	border-radius: 50%;
+	height: 150px;
+}
+
 .event_image_container {
 	padding-top: 15px;
 }
 
-.event_image {
-	border-radius: 50%;
-	height: 150px;
+.org_image {
+	border-radius: 10%;
+	height: 200px;
+}
+
+.org_container {
+	padding: 20px;
+}
+
+.org_attributes {
+	font-size: 1.2em;
+	font-weight: bold;
 }
 
 /* The side navigation menu */
