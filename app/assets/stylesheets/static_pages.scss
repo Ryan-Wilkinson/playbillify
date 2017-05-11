@@ -375,5 +375,19 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 
 
+.reveal-if-sellers {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
 
+input[type="checkbox"]:checked ~ .reveal-if-sellers {
+  opacity: 1;
+  max-height: 100px;
+  overflow: visible;
+}
+
+.sellers-chart {
+  margin: 0 auto;
+}
 

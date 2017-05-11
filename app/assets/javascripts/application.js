@@ -18,6 +18,12 @@
 //= require jquery.maskedinput
 //= require_self
 //= require_tree .
+$(document).ready(function() {
+
+$('.seller-dropdown').on('change', function() {
+  var value = $(this).val();
+$('.seller-field').val(value);
+});
 
 function searchAndHideEvents() {
   var input = document.getElementById('searchTerm').value;
@@ -31,6 +37,8 @@ function searchAndHideEvents() {
     }
   }
 };
+
+$('select').material_select();
 
 function refreshPage() {
   location.reload();

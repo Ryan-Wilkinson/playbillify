@@ -40,18 +40,38 @@
       <%= column_chart @sold_ads.group(:size).count %>
     </div>
 
+
     <div class='dashboard-chart card-panel'>
-    <h5>Revenue By Day</h5>
+        <h5>Sales by Referrer</h5>
+    <% if @sellers.present? %>
+    <%= pie_chart @sellers.group(:seller).count%>
+    <% else %>
+    <br>
+    <p>You do not have any referrers set up.</p>
+    <% end %>
+        </div>
+  </div>
+  <br>
+
+<div class='sellers-chart card-panel'>
+    <h5 class="center">Revenue By Day</h5>
+    <div class='row'>
+    <div class='col s8 offset-s2'>
     <%= line_chart @sold_ad_prices.group_by_day(:updated_at).sum(:price) %>
+    </div>
     </div>
   </div>
 
+  <br>
   <div class='ad-list-container'>
     <h4 class="center">Purchased Ads</h4>
     <div class="ad-list">
       <%@event.ads.each do |ad| %>
       <% if ad.advertiser_id? %>
-        <div class="ad-card">
+        <div class="ad-card center">
+          <% if ad.seller%>
+            Sold by: <%= ad.seller %>
+          <% end %>
           <div class="card">
             <div class="card-image">
               <% if ad.image_file_name.nil? %>

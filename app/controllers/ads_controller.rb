@@ -22,6 +22,7 @@ class AdsController < ApplicationController
 
   def add_image
     @ad = Ad.find(params[:id])
+    @sellers = @ad.event.sellers
     authorize! :add_image, Ad
   end
 
@@ -94,14 +95,14 @@ class AdsController < ApplicationController
 
     def ad_params
       params.require(:ad)
-        .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions, :image)
+        .permit(:size, :price, :advertiser_id, :event_id, :photo_url, :dimensions, :image, :seller)
         .merge(event_id: params[:event_id])
     end
 
     def redirect_after_ad_update
       if current_user.user_type == 'advertiser'
         if @ad.image_file_name == nil
-          redirect_to "/ads/#{@ad.id}/add-image"
+          redirect_to "/ads/purchased-ads"
         else
           redirect_to "/ads/purchased-ads"
         end
@@ -109,7 +110,6 @@ class AdsController < ApplicationController
         redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
       end
     end
-
 
 end
 
