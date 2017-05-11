@@ -1,22 +1,22 @@
-angular
-  .module('playbillifyApp')
-  .component('organizationsNew', {
-    templateUrl: '<%= asset_path("components/organizationsNew/organizationsNew") %>',
-    controller: OrganizationNewController
-  });
+// angular
+//   .module('playbillifyApp')
+//   .component('organizationsNew', {
+//     templateUrl: '<%= asset_path("components/organizationsNew/organizationsNew") %>',
+//     controller: OrganizationNewController
+//   });
 
-OrganizationNewController.$inject = ['OrganizationsService'];
+// OrganizationNewController.$inject = ['OrganizationsService'];
 
-function OrganizationNewController(OrganizationsService, $state) {
-  const vm = this;
-  vm.addOrganization = addOrganization;
-  vm.newOrganization = {};
+// function OrganizationNewController(OrganizationsService, $state) {
+//   const vm = this;
+//   vm.addOrganization = addOrganization;
+//   vm.newOrganization = {};
 
-  function addOrganization(newOrganization) {
-    OrganizationsService
-    .addOrganization(newOrganization)
-    .then(function () {
-      $state.go('home')
-    })
-  }
-}
+//   function addOrganization(newOrganization) {
+//     OrganizationsService
+//     .addOrganization(newOrganization)
+//     .then(function () {
+//       $state.go('home')
+//     })
+//   }
+// }

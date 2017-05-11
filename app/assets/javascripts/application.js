@@ -15,8 +15,7 @@
 //= require jquery_ujs
 //= require Chart.bundle
 //= require chartkick
-//* require angular/angular
-//* require angular-ui-router/release/angular-ui-router
+//= require jquery.maskedinput
 //= require_self
 //= require_tree .
 
@@ -47,4 +46,3 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-Materialize.toast('I am a toast!', 4000, 'blue') // 4000 is the duration of the toast
