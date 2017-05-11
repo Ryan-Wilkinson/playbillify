@@ -12,7 +12,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   delegate :can?, :cannot?, :to => :ability
 
-  after_create :subscribe_to_mailchimp
+  after_create :add_to_mailchimp
 
   def organization?
     user_type == "organization"
@@ -24,8 +24,21 @@ class User < ApplicationRecord
 
   private
 
-  def subscribe_to_mailchimp
-    SubscribeToMailchimpJob.perform_later(self)
+  def add_to_mailchimp
+    list_id = ENV['MAILCHIMP_LIST_ID']
+    @gb = Gibbon::Request.new
+    subscribe = @gb.lists(list_id).members.create(body: {
+      email_address: self.email,
+      status: "subscribed",
+      double_optin: false,
+      merge_fields: {
+        FNAME: self.first_name,
+        LNAME: self.last_name,
+        USERTYPE: self.user_type
+      }
+    })
+     rescue Gibbon::MailChimpError => exception
+      Rails.logger.error("failed becuz #{exception.detail}")
   end
 
 end
