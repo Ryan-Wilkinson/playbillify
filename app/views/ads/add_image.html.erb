@@ -1,10 +1,11 @@
+<div class='container white'>
 <h4 class='center'>Success!</h4>
 
 <%= form_for [@ad.event.organization, @ad.event, @ad] do |f| %>
   <p>Thanks for your purchase. Now, upload the image you'd like to use for this ad.</p>
   <%= f.label :photo_url %><br>
 	<%= f.file_field :image %><br>
-  <%= f.text_field :seller, class: 'seller-field' %><br />
+  <%= f.hidden_field :seller, class: 'seller-field' %><br />
   </p>
 <%= f.submit %>
 <% end %>
@@ -27,5 +28,7 @@ Who helped you?
 
 
 <%= link_to 'View All Purchased Ads', ads_purchased_ads_path, class:'btn'%>
-
+<br>
+<br>
 </div>
+

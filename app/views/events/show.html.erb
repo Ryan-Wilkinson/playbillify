@@ -40,22 +40,26 @@
       <%= column_chart @sold_ads.group(:size).count %>
     </div>
 
+
     <div class='dashboard-chart card-panel'>
-    <h5>Revenue By Day</h5>
-    <%= line_chart @sold_ad_prices.group_by_day(:updated_at).sum(:price) %>
-    </div>
+        <h5>Sales by Referrer</h5>
+    <% if @sellers.present? %>
+    <%= pie_chart @sellers.group(:seller).count%>
+    <% else %>
+    <br>
+    <p>You do not have any referrers set up.</p>
+    <% end %>
+        </div>
   </div>
   <br>
 
-<% if @sellers %>
 <div class='sellers-chart card-panel'>
-    <h5 class="center">Sellers</h5>
+    <h5 class="center">Revenue By Day</h5>
     <div class='row'>
     <div class='col s8 offset-s2'>
-    <%= column_chart @sellers.group(:seller).count%>
+    <%= line_chart @sold_ad_prices.group_by_day(:updated_at).sum(:price) %>
     </div>
     </div>
-<% end %>
   </div>
 
   <br>
