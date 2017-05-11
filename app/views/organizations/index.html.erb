@@ -1,49 +1,47 @@
-<div>
 <div class='organizations-page-content'>
   <p id="notice"><%= notice %></p>
-    <h4 class="center"> Your Organizations & Events </h4>
-<br>
+  <h4 class="center"> Your Organizations & Events </h4>
 
+<div class="event_show_container">
   <% @organizations.each do |organization| %>
     <h5><%=organization.name%>'s Events:</h5>
-    <div class="centered-row row">
-      <% if organization.events.any? %>
+      <% if organization.events.present? %>
+      	<div class="innerContent">
         <% organization.events.each do |event| %>
-              <div class="card event-card col s3">
-                <div class="card-image">
-                <% if event.event_image.present? %>
-                  <%= image_tag(event.event_image, :class => "image-for-card event-card-image") %>
-                <% else %>
-                  <%= image_tag("http://www.futurespast.co/wp-content/themes/bh_courage/assets/images/placeholder_featured_image.svg", :class => "event-card-image") %>
+  				<div class="events_wrapper">
+            <div class="card event-card">
+              <div class="card-image fill">
+              <% if event.event_image.present? %>
+                <%= image_tag(event.event_image, :class => "image-for-card event-card-image") %>
+              <% else %>
+                <%= image_tag("https://www.allclassifieds.com.au/styles/images/noImg-grey.png", :class => "image-for-card event-card-image") %>
+              <% end %>
+              <span class="card-title" style="font-size: 18px"><%=event.name %></span>
+              </div>
+              <div class="card-content">
+                  <b>Where: </b><%= event.venue %>
+                  <br>
+                  <b>When: </b><%= event.start_date.strftime ("%B %d, %Y") %><br>
+                  <% if  event.end_date.present? and event.end_date != event.start_date %>
+                  	<b>Through: </b><%= event.end_date.strftime ("%B %d, %Y") %>
                   <% end %>
-                  <span class="card-title" style="font-size: 18px"><%=event.name %></span>
-                </div>
-                <div class="card-content">
-                    <strong>Where: <%= event.venue %></strong>
-                    <br>
-                    <strong>When: <%= event.start_date %></strong>
-                    <% if  event.end_date?  %>
-                    Through: <%= event.end_date %>
-
-                    <% end %>
-                </div>
-                <div class="card-action">
-                  <%= link_to 'Manage', organization_event_path(organization, event), :class => "waves-effect waves-light btn little-button"  %>
-
-
-                </div>
-
-            </div>
-        </div>
-            <% end %>
-    </div>
-    <% else %>
-      <i>No events exist for this organization</i>
-      <br>
-    <% end %>
-    <%= link_to "more on #{organization.name}", organization, :class => "waves-effect waves-light btn little-button" %>
-    <%= link_to 'New Event', new_organization_event_path(organization), :class => "waves-effect waves-light btn little-button" %>
-    <% end %>
-    </div>
+              </div>
+              <div class="card-action">
+                <%= link_to 'Manage', organization_event_path(organization, event), :class => "waves-effect waves-light btn little-button"  %>
+              </div>
+						</div>
+          </div>
+        <% end %>
+    	<% else %>
+    		<div class="innerContent" style="display:inherit;">
+	    	<div class="no_org_info">
+	      	<i>No events exist for this organization</i>
+	    	</div>
+	      <br>
+	    <% end %>
+	    </div>
+   	 	<%= link_to "More on #{organization.name}", organization, :class => "waves-effect waves-light btn little-button" %>
+    	<%= link_to 'New Event', new_organization_event_path(organization), :class => "waves-effect waves-light btn little-button" %>
+  <% end %>
+  			</div>
 </div>
-
