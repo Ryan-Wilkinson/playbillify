@@ -32,6 +32,8 @@
 			<%= f.label "Event End Date (optional)" %>
 			<%= f.date_field :end_date %>
 
+			<%= f.label "Seller Full Names" %>
+			<%= f.text_area :sellers %>
 
 			<%= f.submit :class => 'btn waves-effect waves-light'%>
 		<% end -%>

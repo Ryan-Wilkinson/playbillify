@@ -20,11 +20,28 @@ class EventsController < ApplicationController
     @sold_ads = Ad.where(event: @event).where.not(advertiser_id: nil)
     @sold_ad_prices = Ad.select(:price).where(event: @event).where.not(advertiser_id: nil)
     calculate_revenue(@sold_ads)
+    @sellers = Ad.select(:seller).where.not(seller: nil)
   end
 
   # POST /events
   def create
-  	@event = Event.create(event_params)
+    sellers_list = event_params[:sellers].split("\r\n")
+    org_id = params[:organization_id]
+    binding.pry
+  	@event = Event.create(
+      :name => event_params[:name],
+      :city => event_params[:city],
+      :state => event_params[:state],
+      :event_image => event_params[:event_image],
+      :start_date => event_params[:start_date],
+      :end_date => event_params[:end_date],
+      :deadline => event_params[:deadline],
+      :estimated_attendees => event_params[:estimated_attendees],
+      :venue => event_params[:venue],
+      :description => event_params[:description],
+      :sellers => sellers_list,
+      :organization_id => org_id
+      )
   	@organization = @event.organization
   	redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
@@ -53,8 +70,9 @@ class EventsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
+
       params.require(:event)
-        .permit(:name, :city, :state, :event_image, :start_date, :end_date, :deadline, :estimated_attendees, :venue, :description)
+        .permit(:name, :city, :state, :event_image, :start_date, :end_date, :deadline, :estimated_attendees, :venue, :description, :sellers)
         .merge(organization_id: params[:organization_id])
     end
 

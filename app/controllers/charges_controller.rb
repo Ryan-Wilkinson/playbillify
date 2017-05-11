@@ -1,6 +1,8 @@
 class ChargesController < ApplicationController
   def new
     @ad = Ad.find(params[:id])
+    event = @ad.event
+    @sellers = event.sellers
     @event = @ad.event
     @organization = @event.organization
     @amount = @ad.price.to_i

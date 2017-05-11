@@ -45,13 +45,29 @@
     <%= line_chart @sold_ad_prices.group_by_day(:updated_at).sum(:price) %>
     </div>
   </div>
+  <br>
 
+<% if @sellers %>
+<div class='sellers-chart card-panel'>
+    <h5 class="center">Sellers</h5>
+    <div class='row'>
+    <div class='col s8 offset-s2'>
+    <%= column_chart @sellers.group(:seller).count%>
+    </div>
+    </div>
+<% end %>
+  </div>
+
+  <br>
   <div class='ad-list-container'>
     <h4 class="center">Purchased Ads</h4>
     <div class="ad-list">
       <%@event.ads.each do |ad| %>
       <% if ad.advertiser_id? %>
-        <div class="ad-card">
+        <div class="ad-card center">
+          <% if ad.seller%>
+            Sold by: <%= ad.seller %>
+          <% end %>
           <div class="card">
             <div class="card-image">
               <% if ad.image_file_name.nil? %>

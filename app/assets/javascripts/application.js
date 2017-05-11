@@ -19,6 +19,12 @@
 //* require angular-ui-router/release/angular-ui-router
 //= require_self
 //= require_tree .
+$(document).ready(function() {
+
+$('.seller-dropdown').on('change', function() {
+  var value = $(this).val();
+$('.seller-field').val(value);
+});
 
 function searchAndHideEvents() {
   var input = document.getElementById('searchTerm').value;
@@ -32,6 +38,8 @@ function searchAndHideEvents() {
     }
   }
 };
+
+$('select').material_select();
 
 function refreshPage() {
   location.reload();
@@ -48,3 +56,5 @@ function closeNav() {
 }
 
 Materialize.toast('I am a toast!', 4000, 'blue') // 4000 is the duration of the toast
+
+});
