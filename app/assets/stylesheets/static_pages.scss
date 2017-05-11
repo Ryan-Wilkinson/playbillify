@@ -28,6 +28,11 @@ nav ul {
   padding: 20px;
 }
 
+.organizations-page-content {
+  padding: 30px;
+  text-align: center;
+  margin: 0 50px 0 50px;
+}
 
 nav {
     height: 100px;
@@ -225,8 +230,16 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 
 .ad-card {
   width: 275px;
+  max-height: 500px;
+  margin: 50px;
+  overflow:scroll;
+}
+
+.event-card {
+  width: 500px;
   margin: 20px;
-  height: 430px;
+  height: 350px;
+  overflow: scroll;
 
 }
 
@@ -390,4 +403,11 @@ input[type="checkbox"]:checked ~ .reveal-if-sellers {
 .sellers-chart {
   margin: 0 auto;
 }
+
+.event-card-image {
+  max-height: 150px;
+}
+
+
+
 
