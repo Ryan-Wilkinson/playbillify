@@ -46,9 +46,12 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
+$(document).ready(function() {
+
 $('.seller-dropdown').on('change', function() {
   var value = $(this).val();
   $('.seller-field').val(value);
+});
 });
 
 
