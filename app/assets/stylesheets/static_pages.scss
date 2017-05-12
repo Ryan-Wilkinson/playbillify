@@ -429,7 +429,6 @@ input[type="checkbox"]:checked ~ .reveal-if-sellers {
 	padding-bottom: 20px;
 }
 
-
 .ad-summary {
   border: 2px solid #2C2B38;
   width: 70%;
@@ -437,6 +436,26 @@ input[type="checkbox"]:checked ~ .reveal-if-sellers {
   padding: 10px;
   font-weight: bolder;
 }
+.collection {
+  margin: auto;
+}
+
+.list-item {
+  margin-top: 20px
+}
+
+.size {
+  width: 113px;
+  height: 82px;
+}
+
+.business-info {
+  padding-top: 35px;
+  margin-bottom: -14px;
+}
+
+.makesure {
+  padding-top: 35px;
 
 .upload-section {
   margin: 0 auto;
@@ -453,8 +472,6 @@ input[type="checkbox"]:checked ~ .reveal-if-sellers {
 .no_org_info {
 	justify-content: center;
 }
-
-
 
 .center-file-upload {
   margin: 0 auto;

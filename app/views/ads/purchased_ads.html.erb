@@ -1,55 +1,56 @@
 <h4 class="center">My Purchased Ads</h4>
 <div class='page-content'>
-  <div class="container white">
-    <div>
-    	<% if @user.business.present? %>
-	      <%= @user.business.business_name %>
-	      <br>
-	      <%= @user.business.business_address1 %> <%= @user.business.business_address2 %>
-	      <br>
-	      <%= @user.business.business_city %>, <%= @user.business.business_state %> <%= @user.business.business_zip %>
-	      <br>
-	      <%= @user.business.business_phone %>
-	   <% end -%>
-    </div>
-    <br>
-    <br>
-    <% if @user.user_type == 'advertiser' %>
-      <div>
-       <% @ads.each do |ad| %>
-        <strong><%= ad.event.name %></strong>
-        <br>
-        <%= ad.event.venue %>
-        <br>
-        <%= ad.size %>
-        <br>
-        <%= ad.dimensions %>
-        <br>
-        You paid <%= number_to_currency(ad.price) %>
-        <br>
-        <% if ad.image_file_name == "" or ad.image_file_name.nil? %>
-          <div class="alert alert-danger">
-            <span class="glyphicon glyphicon-exclamation-sign"></span>
-            Make sure to upload your ad image before <%= ad.event.deadline.strftime("%B %d, %Y") %>!</div>
-          <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
-          <p>
-    				<%= f.file_field :image %>
-          </p>
-            <%= f.submit "Add"%>
-          <% end %>
+  <div class="white container row">
+  <% if @user.user_type == 'advertiser' %>
+    <% @ads.each do |ad| %>
+    <ul class="collection white">
+      <li class=" avatar col s3 m4 center list-item">
+      <% if ad.image.exists? %>
+        <img src="<%= ad.image %>" class="circle ad-image">
         <% else %>
-          <%= image_tag(ad.image, width: 200) %><br>
-          <%= form_for [ad.event.organization, ad.event, ad] do |f| %>
-          	<p>
-    					<%= f.file_field :image %>
-          	</p>
-            	<%= f.submit %>
+          <img src="http://www.seagravevillagehall.co.uk/images/images/large/awaiting-image.png" class="circle ad-image size">
         <% end %>
-               <br><br><br>
+        <h5> <%= ad.event.name %> </h5>
+        <p><%= ad.event.venue %><br>
+           <%= ad.size %><br>
+           <%= ad.dimensions %><br>
+           You paid <%= number_to_currency(ad.price) %><br>
+        </p>
+      </li>
+      <li class="col s12 m4 list-item">
+        <% if @user.business.present? %>
+
+        <h5 class="business-info">Business info: </h5>
+        <br>
+        <span class="title"><%= @user.business.business_name %></span>
+          <%= @user.business.business_name %>
+          <br>
+          <%= @user.business.business_address1 %> <%= @user.business.business_address2 %>
+          <br>
+          <%= @user.business.business_city %>, <%= @user.business.business_state %> <%= @user.business.business_zip %>
+          <br>
+          <%= @user.business.business_phone %>
+       <% end -%>
+      </li>
+      <% if ad.image_file_name == "" or ad.image_file_name.nil? %>
+      <li class="col s12 m4 list-item ">
+        <span class="glyphicon glyphicon-exclamation-sign makesure"></span>
+        <span class="left">Make sure to upload your ad image before <%= ad.event.deadline.strftime("%B %d, %Y") %>!</span>
+        <%= form_for [ad.event.organization, ad.event, ad ] do |f| %>
+        <br>
+        <p>
+         <%= f.file_field :image %>
+        </p>
+        <br>
+        <%= f.submit "Add", :class => 'btn waves-effect waves-light'%>
+        <% end %>
+      </li>
       <% end %>
-     <% end %>
-     <% end -%>
-    </div>
+    </ul>
+    <% end %>
+    <% end %>
   </div>
 </div>
+
+
 
