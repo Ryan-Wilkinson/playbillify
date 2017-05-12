@@ -12,9 +12,9 @@
     <br>
     <br>
     <div class='container'>
-<h5>Reserve your ad spot!</h5>
-<p>Purchase securely online with a credit card. Once your purchase is complete, you'll be able to upload your ad image.</p>
-</div>
+			<h5>Reserve your ad spot!</h5>
+			<p>Purchase securely online with a credit card. Once your purchase is complete, you'll be able to upload your ad image.</p>
+		</div>
     <%= form_tag ads_charges_path(@ad.id) do -%>
      <article>
          <%= label_tag 'amount', '', class: 'amount' %>
@@ -25,7 +25,7 @@
         data-key="<%= ENV["stripe_publishable_key"] %>"
         data-description="<%= @description %>"
         data-amount="<%= @amount * 100 %>">
-      </script>
+    </script>
       <br>
       <br>
       <br>

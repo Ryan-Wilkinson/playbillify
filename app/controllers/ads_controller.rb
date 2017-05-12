@@ -78,7 +78,6 @@ class AdsController < ApplicationController
     redirect_after_ad_update
   end
 
-  # DELETE /events/1
   def destroy
     @ad = Ad.find(params[:id])
     @event = @ad.event
@@ -88,7 +87,6 @@ class AdsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
 
     def ad_params
       params.require(:ad)
@@ -107,7 +105,6 @@ class AdsController < ApplicationController
         redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
       end
     end
-
 end
 
 
