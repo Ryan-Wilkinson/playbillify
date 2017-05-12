@@ -48,11 +48,23 @@ function closeNav() {
 
 $(document).ready(function() {
 
-$('.seller-dropdown').on('change', function() {
-  var value = $(this).val();
-  $('.seller-field').val(value);
+	$('.seller-dropdown').on('change', function() {
+	  var value = $(this).val();
+	  $('.seller-field').val(value);
+	});
+
+		$('.seller_hover').hover(function() {
+	    $('.popup').show();
+	}, function() {
+	    $('.popup').hide();
+	});
+
+		$('.datepickerthing').pickadate({
+		  selectMonths: true,
+		  selectYears: 10
+		});
 });
-});
+
 
 
 
