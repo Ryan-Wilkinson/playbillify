@@ -50,6 +50,7 @@ $(document).ready(function() {
 
 	$('.seller-dropdown').on('change', function() {
 	  var value = $(this).val();
+    console.log(value)
 	  $('.seller-field').val(value);
 	});
 
@@ -65,10 +66,9 @@ $(document).ready(function() {
 	});
 
   $('.file-upload').on('click',function() {
-    console.log(this)
     $('.add-button-for-image').removeClass( "hide" )
   })
-  
+
 });
 
 
