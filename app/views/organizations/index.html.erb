@@ -1,24 +1,26 @@
 <div class='organizations-page-content'>
   <p id="notice"><%= notice %></p>
   <h4 class="center"> Your Organizations & Events </h4>
-
+  <%= link_to 'Add Organization', new_organization_path, :class => "waves-effect waves-light btn-flat little-button" %>
+  <br>
+  <br>
 <% if current_user.organizations.present? %>
 <div class="event_show_container">
   <% @organizations.each do |organization| %>
     <h5><%=organization.name%>'s Events:</h5>
-    	
+
       <% if organization.events.present? %>
 				<div class="ad-inventory-section">
         <% organization.events.each do |event| %>
   				<div class="events_wrapper">
             <div class="card event-card">
+              <span class="card-title" style="font-size: 18px"><%=event.name %></span>
               <div class="card-image fill">
               <% if event.event_image.present? %>
                 <%= image_tag(event.event_image, :class => "image-for-card event-card-image") %>
               <% else %>
                 <%= image_tag("https://www.allclassifieds.com.au/styles/images/noImg-grey.png", :class => "image-for-card event-card-image") %>
               <% end %>
-              <span class="card-title" style="font-size: 18px"><%=event.name %></span>
               </div>
               <div class="card-content">
                   <b>Where: </b><%= event.venue %>
@@ -42,14 +44,20 @@
 	      <br>
 	    <% end %>
 	    </div>
+      <br>
+      <br>
+      <%= link_to 'New Event', new_organization_event_path(organization), :class => "waves-effect waves-light btn little-button" %>
    	 	<%= link_to "More on #{organization.name}", organization, :class => "waves-effect waves-light btn little-button" %>
-    	<%= link_to 'New Event', new_organization_event_path(organization), :class => "waves-effect waves-light btn little-button" %>
+      <br>
     	<br>
     	<br>
     	<br>
   <% end %>
   <% else %>
-	<h3>YOU DONT HAVE ANY ORGANIZATIONS</h3>
+  <br>
+	<h5>You don't have any organizations yet. Add one to get started! </h5>
+  <br>
 	<%= link_to 'Create Organization', new_organization_path, :class => "waves-effect waves-light btn little-button" %>
  <% end -%>
 </div>
+

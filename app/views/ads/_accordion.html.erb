@@ -3,7 +3,9 @@
     <div class="card-panel white lighten-5 z-depth-1">
       <div class="row valign-wrapper">
         <div class="col s2">
-          <%unless event.event_image.nil? %>
+          <%if event.event_image_file_name.nil? %>
+            <%= image_tag('http://www.screen-sight.com/wp-content/uploads/2014/04/placeholder3.png', height: 100, width: 150) %>
+          <% else %>
             <%= image_tag(event.event_image, height: 100, width:150) %>
           <%end %>
         </div>
@@ -12,9 +14,9 @@
           <h5><%= event.name %></h5><span class="black-text"></span></a>
           <div>
             <div class="black-text">Location: <%= event.venue %> | <%= event.city %>, <%= event.state %></div>
-            <div class="black-text">Performance Date(s): <%= event.start_date.strftime("%b %d, %Y") %> 
+            <div class="black-text">Performance Date(s): <%= event.start_date.strftime("%b %d, %Y") %>
             <% if event.end_date.present? and event.end_date != event.start_date %>
-            	 - <%= event.end_date.strftime("%b %d, %Y") %> 
+            	 - <%= event.end_date.strftime("%b %d, %Y") %>
             <% end %></div>
             <div class="black-text">Estimated Attendance: <%= event.estimated_attendees %></div>
           </div>
