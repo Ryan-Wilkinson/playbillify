@@ -1,18 +1,23 @@
-<div class="page-content">
+<div class="page-content purchase-page">
   <div class="container white">
-    <h4 class="center">Ad Details</h4>
-    <h3><%= @ad.event.name %> </h3>
+    <h4 class="center">View ad details & purchase</h4>
+    <br>
+    <h3 class='event-name'><%= @ad.event.name %> </h3>
+    <br>
     Organization: <%= @ad.event.organization.name %><br>
-    Dimensions: <%= @ad.dimensions %>
+    Details: <%= @ad.dimensions %>
     <br>
     Price: <%= number_to_currency(@ad.price) %>
 
     <br>
     <br>
-
+    <div class='container'>
+<h5>Reserve your ad spot!</h5>
+<p>Purchase securely online with a credit card. Once your purchase is complete, you'll be able to upload your ad image.</p>
+</div>
     <%= form_tag ads_charges_path(@ad.id) do -%>
      <article>
-         <%= label_tag 'amount', 'To Pay', class: 'amount' %>
+         <%= label_tag 'amount', '', class: 'amount' %>
          <%= label_tag 'amount', "$#{@amount}", class: 'amount-figure' %>
      </article>
 
@@ -21,6 +26,9 @@
         data-description="<%= @description %>"
         data-amount="<%= @amount * 100 %>">
       </script>
+      <br>
+      <br>
+      <br>
     <% end %>
   </div>
 </div>

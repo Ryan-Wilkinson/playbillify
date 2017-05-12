@@ -32,7 +32,7 @@ class OrganizationsController < ApplicationController
   def update
   	@organization = Organization.find(params[:id])
   	@organization.update(organization_params)
-  	redirect_to "/organizations"
+  	redirect_to "/organizations/#{@organization.id}"
   end
 
   # DELETE /organizations/1

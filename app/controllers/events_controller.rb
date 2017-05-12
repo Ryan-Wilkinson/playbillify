@@ -63,7 +63,7 @@ class EventsController < ApplicationController
   	@event = Event.find(params[:id])
   	@organization = @event.organization
     @event.destroy
-    redirect_to "/organizations/#{@organization.id}"
+    redirect_to "/organizations/"
   end
 
   private
