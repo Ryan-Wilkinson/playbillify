@@ -21,7 +21,7 @@
 			<%= f.file_field :event_image %><br>
 
 			<%= f.label "Ad image deadline" %>
-			<%= f.date_field :deadline, :required => true %>
+			<%= f.text_field :deadline, :class => "datepicker", :required => true %>
 
 			<%= f.label :description %>
 			<%= f.text_field :description %>
@@ -32,11 +32,31 @@
 			<%= f.label "Event End Date (optional)" %>
 			<%= f.date_field :end_date %>
 
-			<%= f.label "Seller Full Names" %>
-			<%= f.text_area :sellers %>
+			<%= f.label "Seller Names", :class => "seller_hover" %>
+			<i class="tiny material-icons seller_hover seller_info_icon">info_outline</i><br>
+			<div class="popup">Enter the names of all the ad sellers for the event on their own lines in the area below. (optional)</div>
+			<%= f.text_area :sellers, style:"height: 120px" %>
 
 			<%= f.submit :class => 'btn waves-effect waves-light'%>
 		<% end -%>
 	</div>
 </div>
 <br>
+
+<script>
+	$('.seller_hover').hover(function() {
+	    $('.popup').show();
+	}, function() {
+	    $('.popup').hide();
+	});
+</script>
+
+<script>
+	$('.datepicker').pickadate({
+	  selectMonths: true, // Creates a dropdown to control month
+	  selectYears: 15 // Creates a dropdown of 15 years to control year
+	});
+</script>
+
+
+

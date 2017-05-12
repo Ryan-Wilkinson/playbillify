@@ -1,5 +1,5 @@
 <div>
-  <div class="col s12 event-card">
+  <div class="col s12 event-ads-card event-card-selector">
     <div class="card-panel white lighten-5 z-depth-1">
       <div class="row valign-wrapper">
         <div class="col s2">
@@ -12,7 +12,10 @@
           <h5><%= event.name %></h5><span class="black-text"></span></a>
           <div>
             <div class="black-text">Location: <%= event.venue %> | <%= event.city %>, <%= event.state %></div>
-            <div class="black-text">Performance Date(s): <%= event.start_date.strftime("%b %d, %Y") %> <% if event.end_date %> - <%= event.end_date.strftime("%b %d, %Y") %> <% end %></div>
+            <div class="black-text">Performance Date(s): <%= event.start_date.strftime("%b %d, %Y") %> 
+            <% if event.end_date.present? and event.end_date != event.start_date %>
+            	 - <%= event.end_date.strftime("%b %d, %Y") %> 
+            <% end %></div>
             <div class="black-text">Estimated Attendance: <%= event.estimated_attendees %></div>
           </div>
         </div>
@@ -44,3 +47,4 @@
       </div>
     </div>
   </div>
+</div>

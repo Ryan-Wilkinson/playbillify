@@ -18,27 +18,19 @@
 //= require jquery.maskedinput
 //= require_self
 //= require_tree .
-$(document).ready(function() {
-
-$('.seller-dropdown').on('change', function() {
-  var value = $(this).val();
-$('.seller-field').val(value);
-});
 
 function searchAndHideEvents() {
-  var input = document.getElementById('searchTerm').value;
-  var eventCards = $('.event-card')
+  var input = document.getElementById('searchTerm').value.toLowerCase();
+  console.log(input);
+  var eventCards = $('.event-card-selector')
   for (i=0; i < eventCards.length; i++) {
-    if (eventCards[i].innerHTML.includes(input)) {
-      console.log(input)
+    if (eventCards[i].innerHTML.toLowerCase().includes(input)) {
     }
     else {
       $(eventCards[i]).hide()
     }
   }
 };
-
-$('select').material_select();
 
 function refreshPage() {
   location.reload();
@@ -53,4 +45,18 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
+
+$(document).ready(function() {
+
+$('.seller-dropdown').on('change', function() {
+  var value = $(this).val();
+  $('.seller-field').val(value);
+});
+});
+
+
+
+
+
+
 
