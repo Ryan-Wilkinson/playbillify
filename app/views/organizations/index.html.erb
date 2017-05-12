@@ -6,8 +6,9 @@
 <div class="event_show_container">
   <% @organizations.each do |organization| %>
     <h5><%=organization.name%>'s Events:</h5>
+    	
       <% if organization.events.present? %>
-      	<div class="innerContent">
+				<div class="ad-inventory-section">
         <% organization.events.each do |event| %>
   				<div class="events_wrapper">
             <div class="card event-card">
@@ -47,7 +48,6 @@
     	<br>
     	<br>
   <% end %>
-  			</div>
   <% else %>
 	<h3>YOU DONT HAVE ANY ORGANIZATIONS</h3>
 	<%= link_to 'Create Organization', new_organization_path, :class => "waves-effect waves-light btn little-button" %>
