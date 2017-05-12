@@ -52,9 +52,22 @@ class EventsController < ApplicationController
   end
 
   def update
+    sellers_list = event_params[:sellers].split("\r\n")
   	@event = Event.find(params[:id])
-  	@organization = @event.organization
-  	@event.update(event_params)
+    org_id = params[:organization_id]
+  	@event.update(:name => event_params[:name],
+                  :city => event_params[:city],
+                  :state => event_params[:state],
+                  :event_image => event_params[:event_image],
+                  :start_date => event_params[:start_date],
+                  :end_date => event_params[:end_date],
+                  :deadline => event_params[:deadline],
+                  :estimated_attendees => event_params[:estimated_attendees],
+                  :venue => event_params[:venue],
+                  :description => event_params[:description],
+                  :sellers => sellers_list,
+                  :organization_id => org_id
+    )
   	redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
 

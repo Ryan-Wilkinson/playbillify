@@ -21,16 +21,7 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    @business = Business.create(
-      business_name: business_params[:business_name],
-      business_address1: business_params[:business_address1],
-      business_address2: business_params[:business_address2],
-      business_city: business_params[:business_city],
-      business_state: business_params[:business_state],
-      business_zip: business_params[:business_zip],
-      business_phone: business_params[:business_phone],
-      user_id: current_user.id
-      )
+    @business = Business.create(business_params)
     redirect_to "/ads"
   end
 
@@ -52,6 +43,6 @@ class BusinessesController < ApplicationController
       params.require(:business)
         .permit(:business_name, :business_address1, :business_address2, :business_city, :business_state, :business_zip, :business_phone)
         .merge(user_id: current_user.id)
-      end
+    end
 
 end

@@ -40,7 +40,6 @@ class AdsController < ApplicationController
     authorize! :purchased_ads, Ad
   end
 
-  # GET /events/new
   def new
     @organization = Organization.find(params[:organization_id])
     @event = Event.find(params[:event_id])
@@ -48,21 +47,19 @@ class AdsController < ApplicationController
   end
 
   def create
-  	params[:count].to_i.times do
-    	@ad = Ad.create(ad_params)
+    params[:count].to_i.times do
+      @ad = Ad.create(ad_params)
     end
     @event = @ad.event
     @organization = @event.organization
     redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
 
-  # GET /events/1
   def show
     @ad = Ad.find(params[:id])
     @user = current_user
   end
 
-  # GET /events/1/edit
   def edit
     if current_user.advertiser?
       redirect_to '/'
