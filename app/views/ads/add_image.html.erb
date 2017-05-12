@@ -3,17 +3,17 @@
 
 <%= form_for [@ad.event.organization, @ad.event, @ad] do |f| %>
   <p class="center">Thanks for your purchase. Your payment has been processed for this ad: </p>
-  	<div class='ad-summary'>
-			<p class='center'><%= @ad.event.name %> at <%= @ad.event.organization.name %><br>
-			<%= @ad.size %> Ad for <%= number_to_currency(@ad.price) %></p>
-		</div>
-		<br>
-  	<h5 class='center add-image-upload-headline'>Upload your ad image</h5>
-  	<p class='center container'>Upload the image you'd like to use for this ad. You have until <%=@ad.event.deadline.strftime("%A, %B %d, %Y") %> to upload it, so don't worry if you don't have an image right now.</p>
-		<br>
-  	<div class='upload-section'>
-			<%= f.file_field :image, class:'center-file-upload' %><br>
-		</div>
+      <div class='ad-summary'>
+            <p class='center'><%= @ad.event.name %> at <%= @ad.event.organization.name %><br>
+            <%= @ad.size %> Ad for <%= number_to_currency(@ad.price) %></p>
+        </div>
+        <br>
+      <h5 class='center add-image-upload-headline'>Upload your ad image</h5>
+      <p class='center container'>Upload the image you'd like to use for this ad. You have until <%=@ad.event.deadline.strftime("%A, %B %d, %Y") %> to upload it, so don't worry if you don't have an image right now.</p>
+        <br>
+      <div class='upload-section'>
+            <%= f.file_field :image, class:'center-file-upload' %><br>
+        </div>
 
 <% unless @sellers == [] %>
 <br>
@@ -41,4 +41,3 @@
 <br>
 <br>
 </div>
-
