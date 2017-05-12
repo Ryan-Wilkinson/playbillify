@@ -16,15 +16,18 @@ Playbillify is a simple to use application that connects arts organizations with
 [Playbillify Trello Flow](https://trello.com/b/CDDxIfj6/ad-app)
 
 ## Group-Members
-- Erin Martin
-	| [Github](https://github.com/RushMyers)
 - Rush Myers
-	| [Github](https://github.com/deviea8)
+    | [Github](https://github.com/RushMyers)
+- Erin Martin
+    | [Github](https://github.com/deviea8)
 - Ryan Wilkinson
-	| [Github](https://github.com/Ryan-Wilkinson)
+    | [Github](https://github.com/Ryan-Wilkinson)
 
 ## Wireframes
-Click [here] (http://i.imgur.com/oy632NW.jpg) to view wireframes
+Click [here](http://i.imgur.com/oy632NW.jpg) to view wireframes
+
+## ERD
+Click [here](https://drive.google.com/file/d/0B9y_Lq3LVbmyaUNNdkV5TG9hWWc/view?usp=sharing) to view ERD
 
 ## Future Developements
 
