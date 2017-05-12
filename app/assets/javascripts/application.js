@@ -50,6 +50,7 @@ $(document).ready(function() {
 
 	$('.seller-dropdown').on('change', function() {
 	  var value = $(this).val();
+    console.log(value)
 	  $('.seller-field').val(value);
 	});
 
@@ -59,15 +60,15 @@ $(document).ready(function() {
 	    $('.popup').hide();
 	});
 
-		$('.datepickerthing').pickadate({
-		  selectMonths: true,
-		  selectYears: 10
-		});
+	$('.datepickerthing').pickadate({
+	  selectMonths: true,
+	  selectYears: 10
+	});
 
-    $('.file-upload').on('click',function() {
-      console.log(this)
-      $('.add-button-for-image').removeClass( "hide" )
-    })
+  $('.file-upload').on('click',function() {
+    $('.add-button-for-image').removeClass( "hide" )
+  })
+
 });
 
 

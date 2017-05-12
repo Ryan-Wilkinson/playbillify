@@ -53,8 +53,18 @@ class EventsController < ApplicationController
 
   def update
   	@event = Event.find(params[:id])
-  	@organization = @event.organization
-  	@event.update(event_params)
+    org_id = params[:organization_id]
+  	@event.update(:name => event_params[:name],
+                  :city => event_params[:city],
+                  :state => event_params[:state],
+                  :start_date => event_params[:start_date],
+                  :end_date => event_params[:end_date],
+                  :deadline => event_params[:deadline],
+                  :estimated_attendees => event_params[:estimated_attendees],
+                  :venue => event_params[:venue],
+                  :description => event_params[:description],
+                  :organization_id => org_id
+    )
   	redirect_to "/organizations/#{@organization.id}/events/#{@event.id}"
   end
 
@@ -67,9 +77,8 @@ class EventsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
 
+    def event_params
       params.require(:event)
         .permit(:name, :city, :state, :event_image, :start_date, :end_date, :deadline, :estimated_attendees, :venue, :description, :sellers)
         .merge(organization_id: params[:organization_id])

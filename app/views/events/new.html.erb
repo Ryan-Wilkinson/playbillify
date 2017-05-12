@@ -1,5 +1,48 @@
 <h4 class="center animated fadeInDown">Enter event information.</h4>
 <br>
 <div class="container white">
-<%= render "form" %>
+  <div class='page-content'>
+    <div class="container white">
+      <%= form_for [@organization, @event] do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, :required => true %>
+
+        <%= f.label :venue %>
+        <%= f.text_field :venue, :required => true %>
+
+        <%= f.label :city %>
+        <%= f.text_field :city, :required => true %>
+
+        <%= f.label :state %>
+        <%= f.select(:state, options_for_select(us_states, "GA"), :required => true) %>
+
+        <%= f.label :estimated_attendees %>
+        <%= f.text_field :estimated_attendees, :required => true %>
+
+        <%= f.label :event_image %>
+        <%= f.file_field :event_image %><br>
+
+        <%= f.label "Ad image deadline" %>
+        <%= f.text_field :deadline, :class => "datepickerthing", :required => true %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+
+        <%= f.label 'Event Start Date' %>
+        <%= f.text_field :start_date, :class => "datepickerthing", :required => true %>
+
+        <%= f.label "Event End Date (optional)" %>
+        <%= f.text_field :end_date, :class => "datepickerthing", :required => true %>
+
+        <%= f.label "Ad sellers", :class => "seller_hover" %>
+        <i class="tiny material-icons seller_hover seller_info_icon">info_outline</i><br>
+        <div class="popup">Will multiple people be selling ads for this event? If so, enter each person's name ON ITS OWN LINE in the area below. (optional)</div>
+        <%= f.text_area :sellers, style:"height: 120px" %>
+
+        <%= f.submit :class => 'btn waves-effect waves-light'%>
+      <% end -%>
+    </div>
+  </div>
+<br>
 </div>

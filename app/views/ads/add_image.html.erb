@@ -1,40 +1,43 @@
 <div class='container white center'>
 <h4 class='center'>Success!</h4>
+
 <%= form_for [@ad.event.organization, @ad.event, @ad] do |f| %>
   <p class="center">Thanks for your purchase. Your payment has been processed for this ad: </p>
-  <div class='ad-summary'>
-    <p class='center'><%= @ad.event.name %> at <%= @ad.event.organization.name %><br>
-    <%= @ad.size %> Ad for <%= number_to_currency(@ad.price) %></p>
-  </div>
-  <br>
-  <h5 class='center add-image-upload-headline'>Upload your ad image</h5>
-  <p class='center container'>Upload the image you'd like to use for this ad. You have until <%=@ad.event.deadline.strftime("%A, %B %d, %Y") %> to upload it, so don't worry if you   don't have an image right now.</p>
-  <br>
-  <div class='upload-section'>
-	 <%= f.file_field :image, class:'center-file-upload' %><br>
-  </div>
-  <% unless @sellers.nil? %>
-  <br>
-  <h5 class='center add-image-upload-headline'>Did someone assist you with this purchase?</h5>
+      <div class='ad-summary'>
+            <p class='center'><%= @ad.event.name %> at <%= @ad.event.organization.name %><br>
+            <%= @ad.size %> Ad for <%= number_to_currency(@ad.price) %></p>
+        </div>
+        <br>
+      <h5 class='center add-image-upload-headline'>Upload your ad image</h5>
+      <p class='center container'>Upload the image you'd like to use for this ad. You have until <%=@ad.event.deadline.strftime("%A, %B %d, %Y") %> to upload it, so don't worry if you don't have an image right now.</p>
+        <br>
+      <div class='upload-section'>
+            <%= f.file_field :image, class:'center-file-upload' %><br>
+        </div>
+
+<% unless @sellers == [] %>
+<br>
+<h5 class='center add-image-upload-headline'>Did someone assist you with this purchase?</h5>
   <p class='center'>Let us know by selecting their name from the dropdown below.</p>
-  <%= f.hidden_field :seller, class: 'seller-field' %><br />
+ <%= f.hidden_field :seller, class: 'seller-field' %><br />
   <!-- Dropdown select for seller -->
     <div class="input-field col s12">
       <select class="browser-default seller-dropdown">
         <option value="" disabled selected>Referrer name</option>
         <% @sellers.each do |s| %>
-          <option value=<%= s %>><%= s %></option>
+            <option value="<%= s %>"><%= s %></option>
         <% end %>
-      </select>
+        </select>
     </div>
-  <% end %>
+<% end %>
+<br>
+<br>
 
   </p>
-  <%= f.submit "Submit Image", :class => 'btn' %>
+<%= f.submit "Submit", :class => 'btn' %>
 <% end %>
 <br>
 <%= link_to 'View All Purchased Ads', ads_purchased_ads_path, class:'btn'%>
 <br>
 <br>
 </div>
-
