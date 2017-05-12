@@ -15,6 +15,14 @@
 <body class="grey lighten-4">
 
 
+<% flash.each do |message, alert| %>
+    <%= javascript_tag "Materialize.toast('#{alert}', 4000)" %>
+<% end %>
+
+
+<%= flash[:notice] %>
+<%= flash[:alert] %>
+
 <!-- Displays fixed navbar only on homepage -->
   <%if current_page?(root_path) %>
     <div class='navbar-fixed'>
