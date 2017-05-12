@@ -63,6 +63,11 @@ $(document).ready(function() {
 		  selectMonths: true,
 		  selectYears: 10
 		});
+
+    $('.file-upload').on('click',function() {
+      console.log(this)
+      $('.add-button-for-image').removeClass( "hide" )
+    })
 });
 
 

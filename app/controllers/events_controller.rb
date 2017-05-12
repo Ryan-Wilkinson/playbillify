@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @sold_ads = Ad.where(event: @event).where.not(advertiser_id: nil)
     @sold_ad_prices = Ad.select(:price).where(event: @event).where.not(advertiser_id: nil)
     calculate_revenue(@sold_ads)
-    @sellers = Ad.select(:seller).where(event: @event).where.not(seller: nil)
+    @sellers = Ad.select(:seller).where(event: @event).where.not(seller: "")
   end
 
   # POST /events

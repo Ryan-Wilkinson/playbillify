@@ -39,10 +39,10 @@
         <%= form_for [ad.event.organization, ad.event, ad ] do |f| %>
         <br>
         <p>
-         <%= f.file_field :image %>
+         <%= f.file_field :image, :class => "file-upload" %>
         </p>
         <br>
-        <%= f.submit "Add", :class => 'btn waves-effect waves-light'%>
+        <%= f.submit "Add", :class => 'btn waves-effect waves-light add-button-for-image hide'%>
         <% end %>
       </li>
       <% end %>
