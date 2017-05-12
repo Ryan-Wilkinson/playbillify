@@ -37,7 +37,7 @@ class ChargesController < ApplicationController
       end
     else
       flash[:error] = 'one or more errors in your order'
-    end
+  end
 
 
 private

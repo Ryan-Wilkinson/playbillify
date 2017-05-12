@@ -2,37 +2,36 @@
   <div class="container white">
    <%= form_for [@organization, @event, @ad] do |f|%>
        <%= f.label 'Type of Ad' %><br>
-       <div class="input-field">
-         <div class="btn-group" >
-           <%= f.radio_button :size, "Full Page", :id=>"first", :checked => true %>
-           <label for="first">Full Page</label>&nbsp;&nbsp;&nbsp;&nbsp;
-           <%= f.radio_button :size, "Half Page", :id=>"second" %>
-           <label for="second">Half Page</label>&nbsp;&nbsp;&nbsp;&nbsp;
-           <%= f.radio_button :size, "1/4 Page", :id=>"third" %>
-           <label for="third">1/4 Page</label>&nbsp;&nbsp;&nbsp;&nbsp;
-           <%= f.radio_button :size, "1/8 Page", :id=>"fourth" %>
-           <label for="fourth">1/8 Page</label>&nbsp;&nbsp;&nbsp;&nbsp;
-           <%= f.radio_button :size, "Event Sponsorship", :id=>"fifth" %>
-           <label for="fifth">Event Sponsorship</label>
-      </div>
-     </div>
-     <br>
-     </p>
-     <p>
-       <%= f.label :price %><br>
-       <%= f.number_field :price, :required => true %>
-     </p>
-     <p>
-       <%= f.label 'Ad Dimensions and details' %><br>
-       <%= f.text_field :dimensions, :required => true %>
-     </p>
-     <p>
-      <%= label_tag 'Count' %><br>
-      <%= number_field_tag 'count', 1, min: 1, max: 10, :required => true %>
-     </p>
+       	<div class="input-field">
+          <div class="btn-group" >
+	          <%= f.radio_button :size, "Full Page", :id=>"first", :checked => true %>
+	          <label for="first">Full Page</label>&nbsp;&nbsp;&nbsp;&nbsp;
+	          <%= f.radio_button :size, "Half Page", :id=>"second" %>
+	          <label for="second">Half Page</label>&nbsp;&nbsp;&nbsp;&nbsp;
+	          <%= f.radio_button :size, "1/4 Page", :id=>"third" %>
+	          <label for="third">1/4 Page</label>&nbsp;&nbsp;&nbsp;&nbsp;
+	          <%= f.radio_button :size, "1/8 Page", :id=>"fourth" %>
+	          <label for="fourth">1/8 Page</label>&nbsp;&nbsp;&nbsp;&nbsp;
+	          <%= f.radio_button :size, "Event Sponsorship", :id=>"fifth" %>
+	          <label for="fifth">Event Sponsorship</label>
+      		</div>
+     		</div>
+      <br>
       <p>
-       <%= f.submit :class => 'btn'%>
-     </p><br>
+      	<%= f.label :price %><br>
+      	<%= f.number_field :price, :required => true %>
+      </p>
+      <p>
+        <%= f.label 'Ad Dimensions and details' %><br>
+        <%= f.text_field :dimensions, :required => true %>
+      </p>
+      <p>
+      	<%= label_tag 'Count' %><br>
+      	<%= number_field_tag 'count', 1, min: 1, max: 10, :required => true %>
+      </p>
+      <p>
+        <%= f.submit :class => 'btn'%>
+      </p><br>
    <% end %>
   </div>
 </div>
