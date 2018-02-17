@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511170452) do
+ActiveRecord::Schema.define(version: 20180217225657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20170511170452) do
     t.integer  "event_image_file_size"
     t.datetime "event_image_updated_at"
     t.string   "sellers",                               array: true
+    t.string   "address"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170511170452) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "address"
   end
 
   create_table "registrations", force: :cascade do |t|
