@@ -34,7 +34,7 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem 'materialize-sass'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 6.0.0"
 gem 'aws-sdk'
 gem "chartkick"
 gem 'groupdate'
